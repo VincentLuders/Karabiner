@@ -1,6 +1,62 @@
 {
     "profiles": [
         {
+            "title": "Command+Q Mappings",
+            "rules": [
+                {
+                    "description": "Command+Q to Command+K in Notion, Command+L elsewhere",
+                    "manipulators": [
+                        {
+                            "type": "basic",
+                            "from": {
+                                "key_code": "q",
+                                "modifiers": {
+                                    "mandatory": ["command"]
+                                }
+                            },
+                            "to": [
+                                {
+                                    "key_code": "k",
+                                    "modifiers": ["command"]
+                                }
+                            ],
+                            "conditions": [
+                                {
+                                    "type": "frontmost_application_if",
+                                    "bundle_identifiers": [
+                                        "^notion\\.id$"
+                                    ]
+                                }
+                            ]
+                        },
+                        {
+                            "type": "basic",
+                            "from": {
+                                "key_code": "q",
+                                "modifiers": {
+                                    "mandatory": ["command"]
+                                }
+                            },
+                            "to": [
+                                {
+                                    "key_code": "l",
+                                    "modifiers": ["command"]
+                                }
+                            ],
+                            "conditions": [
+                                {
+                                    "type": "frontmost_application_unless",
+                                    "bundle_identifiers": [
+                                        "^notion\\.id$"
+                                    ]
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
             "title": "Custom Application Shortcuts",
             "rules": [
                 {
@@ -28,34 +84,6 @@
                                 }
                             ],
                             "type": "basic"
-                        }
-                    ]
-                },
-                {
-                    "description": "Approach 1: Single Rule with Conditions",
-                    "manipulators": [
-                        {
-                            "type": "basic",
-                            "from": {
-                                "key_code": "q",
-                                "modifiers": {
-                                    "mandatory": ["command"]
-                                }
-                            },
-                            "to": [
-                                {
-                                    "key_code": "l",
-                                    "modifiers": ["command"]
-                                }
-                            ],
-                            "conditions": [
-                                {
-                                    "type": "frontmost_application_if",
-                                    "bundle_identifiers": [
-                                        "^notion\\.id$"
-                                    ]
-                                }
-                            ]
                         }
                     ]
                 }
