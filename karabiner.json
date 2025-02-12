@@ -32,9 +32,10 @@
                     ]
                 },
                 {
-                    "description": "Notion: Command + Q to Command + K",
+                    "description": "Approach 1: Single Rule with Conditions",
                     "manipulators": [
                         {
+                            "type": "basic",
                             "from": {
                                 "key_code": "q",
                                 "modifiers": {
@@ -43,7 +44,7 @@
                             },
                             "to": [
                                 {
-                                    "key_code": "k",
+                                    "key_code": "l",
                                     "modifiers": ["command"]
                                 }
                             ],
@@ -54,11 +55,11 @@
                                         "^notion\\.id$"
                                     ]
                                 }
-                            ],
-                            "type": "basic"
+                            ]
                         }
                     ]
                 }
+                
             ]
         },
     
