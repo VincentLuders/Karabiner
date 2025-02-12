@@ -369,7 +369,7 @@
                                 ],
                                 "type": "basic"
                             },                  
-                                                        {
+                            {
                                 "from": {
                                     "key_code": "semicolon",
                                     "modifiers": {
@@ -383,7 +383,7 @@
                                         "key_code": "delete_or_backspace",
                                 
                                         "modifiers": [
-                                            "left_shift"
+                                            "left_option"
                                         ]
                                     }
                                 ],
