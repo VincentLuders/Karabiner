@@ -36,11 +36,11 @@
                                 "from": {
                                     "key_code": "tab",
                                     "modifiers": {
-                                        "mandatory": ["left_command"]
+                                        "mandatory": ["right_command"]
                                     }
                                 },
                                 "to": [{
-                                    "key_code": "grave_accent_and_tilde",
+                                    "key_code": "non_us_backslash",
                                     "modifiers": ["command"]
                                 }],
                                 "type": "basic"
