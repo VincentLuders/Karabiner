@@ -20,6 +20,20 @@
                                 "type": "basic"
                             },
                             {
+                                "type": "basic",
+                                "from": {
+                                  "key_code": "f",
+                                  "modifiers": {
+                                    "mandatory": ["caps_lock"]
+                                  }
+                                },
+                                "to": [
+                                  {
+                                    "shell_command": "osascript -e 'tell application \"Finder\" to set b to bounds of window of desktop' -e 'tell application \"System Events\" to tell (first process whose frontmost is true) to set bounds of window 1 to b'"
+                                  }
+                                ]
+                              },
+                            {
                                 "from": {
                                     "key_code": "k",
                                     "modifiers": { "mandatory": ["right_command"] }
