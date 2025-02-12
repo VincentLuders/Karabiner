@@ -61,6 +61,17 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "escape"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "tab"
                                 },
                                 "to": [
@@ -280,7 +291,7 @@
                         ]
                     },
                     {
-                        "description": "Directions Arrow and Delete",
+                        "description": "Arrows Highlight and Delete and Backspace",
                         "manipulators": [
                             {
                                 "from": { "key_code": "semicolon" },
