@@ -168,7 +168,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Left Command + 3 opens System Settings and hides other apps",
+                                "description": "Left Command + 3 opens System Settings with clean background",
                                 "manipulators": [
                                     {
                                         "type": "basic",
@@ -180,12 +180,13 @@
                                         },
                                         "to": [
                                             {
-                                                "shell_command": "osascript -e 'tell application \"System Events\" to set visible of every process to false' -e 'tell application \"System Settings\" to activate'"
+                                                "shell_command": "osascript -e 'tell application \"Finder\" to activate' -e 'tell application \"System Events\" to tell process \"Finder\" to click (menu item \"Hide Others\" of menu \"Finder\" of menu bar 1)' -e 'delay 0.1' -e 'tell application \"System Settings\" to activate'"
                                             }
                                         ]
                                     }
                                 ]
                             },
+                            
                             
                             {
                                 "type": "basic",
