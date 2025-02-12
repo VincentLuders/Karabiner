@@ -100,21 +100,6 @@
                             {
                                 "type": "basic",
                                 "from": {
-                                    "key_code": "q",
-                                    "modifiers": {
-                                        "mandatory": ["command"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "l",
-                                        "modifiers": ["command"]
-                                    }
-                                ]
-                            },
-                            {
-                                "type": "basic",
-                                "from": {
                                     "key_code": "tab",
                                     "modifiers": {
                                         "mandatory": ["left_option"]
