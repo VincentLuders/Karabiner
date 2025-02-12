@@ -1,6 +1,68 @@
 {
     "profiles": [
         {
+            "title": "Custom Application Shortcuts",
+            "rules": [
+                {
+                    "description": "Vivaldi: Right Command + K to Control + F18",
+                    "manipulators": [
+                        {
+                            "from": {
+                                "key_code": "k",
+                                "modifiers": {
+                                    "mandatory": ["right_command"]
+                                }
+                            },
+                            "to": [
+                                {
+                                    "key_code": "f18",
+                                    "modifiers": ["control"]
+                                }
+                            ],
+                            "conditions": [
+                                {
+                                    "type": "frontmost_application_if",
+                                    "bundle_identifiers": [
+                                        "^com\\.vivaldi\\.Vivaldi$"
+                                    ]
+                                }
+                            ],
+                            "type": "basic"
+                        }
+                    ]
+                },
+                {
+                    "description": "Notion: Command + Q to Command + K",
+                    "manipulators": [
+                        {
+                            "from": {
+                                "key_code": "q",
+                                "modifiers": {
+                                    "mandatory": ["command"]
+                                }
+                            },
+                            "to": [
+                                {
+                                    "key_code": "k",
+                                    "modifiers": ["command"]
+                                }
+                            ],
+                            "conditions": [
+                                {
+                                    "type": "frontmost_application_if",
+                                    "bundle_identifiers": [
+                                        "^notion\\.id$"
+                                    ]
+                                }
+                            ],
+                            "type": "basic"
+                        }
+                    ]
+                }
+            ]
+        },
+    
+        {
             "complex_modifications": {
                 "rules": [
                     {
@@ -34,29 +96,6 @@
                                     "shell_command": "osascript -e 'tell application \"Finder\" to set d to bounds of window of desktop' -e 'tell application \"System Events\" to tell (first process whose frontmost is true) to tell front window to set bounds to d'"
                                   }
                                 ]
-                            },
-                            {
-                                "from": {
-                                    "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": ["right_command"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f18",
-                                        "modifiers": ["control"]
-                                    }
-                                ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": [
-                                            "^com\\.vivaldi\\.Vivaldi$"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
                             },
                             {
                                 "type": "basic",
