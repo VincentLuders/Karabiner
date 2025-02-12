@@ -18,6 +18,19 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"]
+                                    }
+                                },
+                                "to": [{
+                                    "key_code": "f18",
+                                    "modifiers": ["control"]
+                                }],
+                                "type": "basic"
                             }
                         ]
                     },
