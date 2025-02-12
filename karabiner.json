@@ -1,99 +1,89 @@
 {
     "profiles": [
         {
-            "title": "Command+Q Mappings",
-            "rules": [
-                {
-                    "description": "Command+Q to Command+K in Notion, Command+L elsewhere",
-                    "manipulators": [
-                        {
-                            "type": "basic",
-                            "from": {
-                                "key_code": "q",
-                                "modifiers": {
-                                    "mandatory": ["command"]
-                                }
-                            },
-                            "to": [
-                                {
-                                    "key_code": "k",
-                                    "modifiers": ["command"]
-                                }
-                            ],
-                            "conditions": [
-                                {
-                                    "type": "frontmost_application_if",
-                                    "bundle_identifiers": [
-                                        "^notion\\.id$"
-                                    ]
-                                }
-                            ]
-                        },
-                        {
-                            "type": "basic",
-                            "from": {
-                                "key_code": "q",
-                                "modifiers": {
-                                    "mandatory": ["command"]
-                                }
-                            },
-                            "to": [
-                                {
-                                    "key_code": "l",
-                                    "modifiers": ["command"]
-                                }
-                            ],
-                            "conditions": [
-                                {
-                                    "type": "frontmost_application_unless",
-                                    "bundle_identifiers": [
-                                        "^notion\\.id$"
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
-            ]
-        },
-        {
-            "title": "Custom Application Shortcuts",
-            "rules": [
-                {
-                    "description": "Vivaldi: Right Command + K to Control + F18",
-                    "manipulators": [
-                        {
-                            "from": {
-                                "key_code": "k",
-                                "modifiers": {
-                                    "mandatory": ["right_command"]
-                                }
-                            },
-                            "to": [
-                                {
-                                    "key_code": "f18",
-                                    "modifiers": ["control"]
-                                }
-                            ],
-                            "conditions": [
-                                {
-                                    "type": "frontmost_application_if",
-                                    "bundle_identifiers": [
-                                        "^com\\.vivaldi\\.Vivaldi$"
-                                    ]
-                                }
-                            ],
-                            "type": "basic"
-                        }
-                    ]
-                }
-                
-            ]
-        },
-    
-        {
+            "name": "Default profile",
+            "selected": true,
             "complex_modifications": {
                 "rules": [
+                    {
+                        "description": "Command+Q Mappings",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": ["command"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "k",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^notion\\.id$"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": ["command"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "l",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_unless",
+                                        "bundle_identifiers": [
+                                            "^notion\\.id$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Vivaldi: Right Command + K to Control + F18",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "k",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f18",
+                                        "modifiers": ["control"]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.vivaldi\\.Vivaldi$"
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    },
                     {
                         "description": "Command + Caps Lock triggers Command + Tab",
                         "manipulators": [
@@ -113,17 +103,15 @@
                             {
                                 "type": "basic",
                                 "from": {
-                                  "key_code": "f",
-                                  "modifiers": {
-                                    "mandatory": [
-                                      "caps_lock"
-                                    ]
-                                  }
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": ["caps_lock"]
+                                    }
                                 },
                                 "to": [
-                                  {
-                                    "shell_command": "osascript -e 'tell application \"Finder\" to set d to bounds of window of desktop' -e 'tell application \"System Events\" to tell (first process whose frontmost is true) to tell front window to set bounds to d'"
-                                  }
+                                    {
+                                        "shell_command": "osascript -e 'tell application \"Finder\" to set d to bounds of window of desktop' -e 'tell application \"System Events\" to tell (first process whose frontmost is true) to tell front window to set bounds to d'"
+                                    }
                                 ]
                             },
                             {
@@ -433,9 +421,9 @@
                     ]
                 }
             ],
-            "name": "Default profile",
-            "selected": true,
-            "virtual_hid_keyboard": { "keyboard_type_v2": "ansi" }
+            "virtual_hid_keyboard": {
+                "keyboard_type_v2": "ansi"
+            }
         }
     ]
 }
