@@ -31,19 +31,6 @@
                                     "modifiers": ["control"]
                                 }],
                                 "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": {
-                                        "mandatory": ["left_command"]
-                                    }
-                                },
-                                "to": [{
-                                    "key_code": "non_us_backslash",
-                                    "modifiers": ["command"]
-                                }],
-                                "type": "basic"
                             }
                         ]
                     },
