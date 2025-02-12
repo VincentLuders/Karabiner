@@ -179,6 +179,17 @@
                                 "type": "basic"
                             },
                             {
+                                "from": {
+                                    "key_code": "t",
+                                    "modifiers": {
+                                        "mandatory": ["left_option"],
+                                        "optional": ["caps_lock"]
+                                    }
+                                },
+                                "to": [{ "shell_command": "open -a 'WhatsApp.app'" }],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Left Command + 3 opens System Settings with clean background",
                                 "manipulators": [
                                     {
