@@ -355,13 +355,13 @@
 
                             {
                                 "from": {
-                                    "key_code": "quote",
+                                    "key_code": "semicolon",
                                     "modifiers": { "mandatory": ["left_shift"] }
                                 },
                                 "to": [
                                     {
                                         "key_code": "return_or_enter",
-                                        "modifiers": ["return_or_enter"]
+                                        "modifiers": ["left_shift"]
                                     }
                                 ],
                                 "type": "basic"
