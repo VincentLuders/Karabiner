@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "Command+Q Mappings",
+                        "description": "Hotkey Mappings",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -47,7 +47,68 @@
                                     }
                                 ],
                                 "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "escape"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "tab"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "escape",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "right_shift"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": [
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
                             }
+
                         ]
                     },
                     {
@@ -219,7 +280,7 @@
                         ]
                     },
                     {
-                        "description": "Directions",
+                        "description": "Directions Arrow and Delete",
                         "manipulators": [
                             {
                                 "from": { "key_code": "semicolon" },
@@ -425,42 +486,7 @@
                                 ],
                                 "type": "basic"
                             },
-                            {
-                                "from": { "key_code": "escape" },
-                                "to": [{ "key_code": "tab" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": { "key_code": "tab" },
-                                "to": [{ "key_code": "escape" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": { "mandatory": ["left_shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "escape",
-                                    "modifiers": { "mandatory": ["right_shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+
                             {
                                 "from": {
                                     "key_code": "k",
