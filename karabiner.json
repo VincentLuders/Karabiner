@@ -499,27 +499,44 @@
                                 "to": [{ "key_code": "escape" }],
                                 "type": "basic"
                             },
-
-                            {
-                                "from": {
-                                    "key_code": "esc",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "left_shift"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": [
-                                            "left_shift"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-
+        {
+            "from": {
+                "key_code": "escape",
+                "modifiers": {
+                    "mandatory": [
+                        "left_shift"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "tab",
+                    "modifiers": [
+                        "shift"
+                    ]
+                }
+            ],
+            "type": "basic"
+        },
+        {
+            "from": {
+                "key_code": "escape",
+                "modifiers": {
+                    "mandatory": [
+                        "right_shift"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "tab",
+                    "modifiers": [
+                        "shift"
+                    ]
+                }
+            ],
+            "type": "basic"
+        }
 
 
 
