@@ -38,12 +38,22 @@
                             {
                                 "from": {
                                     "key_code": "k",
-                                    "modifiers": { "mandatory": ["right_command"] }
+                                    "modifiers": {
+                                        "mandatory": ["right_command"]
+                                    }
                                 },
                                 "to": [
                                     {
                                         "key_code": "f18",
                                         "modifiers": ["control"]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "type": "frontmost_application_if",
+                                        "bundle_identifiers": [
+                                            "^com\\.vivaldi\\.Vivaldi$"
+                                        ]
                                     }
                                 ],
                                 "type": "basic"
