@@ -277,7 +277,8 @@
                                 "from": { "key_code": "delete_or_backspace" },
                                 "to": [{ "key_code": "quote" }],
                                 "type": "basic"
-                            },                            {
+                            },   
+                            {
                                 "from": { "key_code": "return_or_enter" },
                                 "to": [{ "key_code": "semicolon" }],
                                 "type": "basic"
@@ -289,6 +290,21 @@
                             {
                                 "from": { "key_code": "quote" },
                                 "to": [{ "key_code": "return_or_enter" }],
+                                "type": "basic"
+                            },
+
+
+                            {
+                                "from": {
+                                    "key_code": "return_or_enter",
+                                    "modifiers": { "mandatory": ["left_shift"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "semicolon",
+                                        "modifiers": ["left_shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             },
 
