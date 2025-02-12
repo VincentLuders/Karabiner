@@ -33,41 +33,35 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Remap Cmd+Q to Cmd+L and Left Option+Tab to Cmd+Q",
-                                "manipulators": [
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "q",
+                                    "modifiers": {
+                                        "mandatory": ["command"]
+                                    }
+                                },
+                                "to": [
                                     {
-                                        "type": "basic",
-                                        "from": {
-                                            "key_code": "q",
-                                            "modifiers": {
-                                                "mandatory": ["command"]
-                                            }
-                                        },
-                                        "to": [
-                                            {
-                                                "key_code": "l",
-                                                "modifiers": ["command"]
-                                            }
-                                        ]
-                                    },
+                                        "key_code": "l",
+                                        "modifiers": ["command"]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": ["left_option"]
+                                    }
+                                },
+                                "to": [
                                     {
-                                        "type": "basic",
-                                        "from": {
-                                            "key_code": "tab",
-                                            "modifiers": {
-                                                "mandatory": ["left_option"]
-                                            }
-                                        },
-                                        "to": [
-                                            {
-                                                "key_code": "q",
-                                                "modifiers": ["command"]
-                                            }
-                                        ]
+                                        "key_code": "q",
+                                        "modifiers": ["command"]
                                     }
                                 ]
                             }
-                            
                         ]
                     },
                     {
