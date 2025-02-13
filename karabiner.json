@@ -363,7 +363,11 @@
                             {
                                 "type": "basic",
                                 "from": {
-                                    "key_code": "caps_lock"
+                                    "key_code": "a",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "caps_lock"
+                                        ]
                                 },
                                 "to": [
                                     {
