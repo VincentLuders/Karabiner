@@ -481,7 +481,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "2",
+                                    "key_code": "1",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
