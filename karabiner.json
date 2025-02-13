@@ -611,7 +611,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "",
+                                    "key_code": "h",
                                     "modifiers": {
                                         "mandatory": [
                                             "caps_lock"
