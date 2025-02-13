@@ -265,12 +265,20 @@
                         "description": "Command + Caps Lock triggers Command + Tab immediately",
                         "manipulators": [
                             {
+                                "type": "basic",
                                 "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "command"
-                                        ]
+                                    "simultaneous": [
+                                        {
+                                            "key_code": "command"
+                                        },
+                                        {
+                                            "key_code": "caps_lock"
+                                        }
+                                    ],
+                                    "simultaneous_options": {
+                                        "key_down_order": "insensitive",
+                                        "key_up_order": "insensitive",
+                                        "detect_key_down_uninterruptedly": true
                                     }
                                 },
                                 "to": [
@@ -278,23 +286,12 @@
                                         "key_code": "tab",
                                         "modifiers": [
                                             "command"
-                                        ],
-                                        "event_type": "key_down"
+                                        ]
                                     }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": [
-                                            "command"
-                                        ],
-                                        "event_type": "key_up"
-                                    }
-                                ],
-                                "type": "basic"
+                                ]
                             }
                         ]
-                    },
+                    }
                     {
                         "description": "Command + Caps Lock triggers Command + Tab",
                         "manipulators": [
