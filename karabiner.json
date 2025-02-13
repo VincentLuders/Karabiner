@@ -611,10 +611,10 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "1",
+                                    "key_code": "2",
                                     "modifiers": {
                                         "mandatory": [
-                                            "caps_lock"
+                                            "left_option"
                                         ]
                                     }
                                 },
