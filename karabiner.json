@@ -48,7 +48,50 @@
                                 ],
                                 "type": "basic"
                             },
-                        
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f1"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "mute"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f2"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "volume_decrement"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f3"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "volume_increment"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f4"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "play_or_pause"
+                                    }
+                                ]
+                            },
                             {
                                 "from": {
                                     "key_code": "escape"
