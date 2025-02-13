@@ -291,7 +291,7 @@
                                 ]
                             }
                         ]
-                    }
+                    },
                     {
                         "description": "Command + Caps Lock triggers Command + Tab",
                         "manipulators": [
