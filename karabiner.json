@@ -376,7 +376,7 @@
                             },
                             {
                                 "from": {
-                                    "key_code": "space",
+                                    "key_code": "q",
                                     "modifiers": {
                                         "mandatory": [
                                             "left_option"
