@@ -4,6 +4,22 @@
             "complex_modifications": {
                 "rules": [
                     {
+                        "description": "Caps Lock triggers menu bar search",
+                        "manipulators": [
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "caps_lock"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "osascript ~/scripts/menu_bar_search.scpt"
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    {
                         "description": "Hotkey Mappings",
                         "manipulators": [
                             {
