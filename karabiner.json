@@ -46,7 +46,17 @@
                                     }
                                 ]
                             },
-
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "f7"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_forward"
+                                    }
+                                ]
+                            },
 
                             
 
