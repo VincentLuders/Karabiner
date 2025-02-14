@@ -28,6 +28,39 @@
                                 ],
                                 "type": "basic"
                             },
+
+
+
+
+
+
+
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "4"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f15"
+                                    }
+                                ]
+                            },
+
+
+                            
+
+
+
+
+
+
+
+
+
+
+
+
                             {
                                 "conditions": [
                                     {
