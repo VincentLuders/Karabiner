@@ -1158,7 +1158,7 @@
     },
     "to": [
         {
-            "key_code": "up_down",
+            "key_code": "down_arrow",
             "modifiers": [
                 "left_command",
                 "left_shift"
