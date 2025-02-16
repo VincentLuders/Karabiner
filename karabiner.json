@@ -1079,27 +1079,7 @@
                                                                     ]
                                                                 }
                                                             ]
-                                                        },
-                                                                                    {
-                                                                                        "type": "basic",
-                                                                                        "from": {
-                                                                                            "key_code": "k",
-                                                                                            "modifiers": {
-                                                                                                "mandatory": [
-                                                                                                    "left_option"
-                                                                                                ]
-                                                                                            }
-                                                                                        },
-                                                                                        "to": [
-                                                                                            {
-                                                                                                "key_code": "down_arrow",
-                                                                                                "modifiers": [
-                                                                                                    "left_command",
-                                                                                                    "left_shift"
-                                                                                                ]
-                                                                                            }
-                                                                                        ]
-                                                                                    },                   
+                                                        },               
                         
 
                             {
