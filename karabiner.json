@@ -53,8 +53,8 @@
                                     "key_code": "w",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_control",
-                                            "left_shift"
+                                            "command",
+                                            "shift"
                                         ]
                                     }
                                 },
@@ -62,8 +62,8 @@
                                     {
                                         "key_code": "open_bracket",
                                         "modifiers": [
-                                            "left_command",
-                                            "left_shift"
+                                            "command",
+                                            "shift"
                                         ]
                                     }
                                 ]
