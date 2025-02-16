@@ -19,7 +19,7 @@
                             },
                             {
                                 "type": "basic",
-                                "from": {
+                                 "from": {
                                     "key_code": "escape"
                                 },
                                 "to": [
