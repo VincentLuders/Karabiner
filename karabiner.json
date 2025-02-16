@@ -3,6 +3,7 @@
         {
             "complex_modifications": {
                 "rules": [
+                    
                     {
                         "description": "Hotkey Mappings",
                         "manipulators": [
@@ -18,6 +19,44 @@
                                 ]
                             },
 
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "escape"
+            },
+            "to": [
+                {
+                    "key_code": "f16"
+                }
+            ],
+            "conditions": [
+                {
+                    "type": "frontmost_application_if",
+                    "bundle_identifiers": [
+                        "^com\\.vivaldi\\."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "escape"
+            },
+            "to": [
+                {
+                    "key_code": "tab"
+                }
+            ],
+            "conditions": [
+                {
+                    "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                        "^com\\.vivaldi\\."
+                    ]
+                }
+            ]
+        },
                             {
                                 "type": "basic",
                                 "from": {
@@ -37,27 +76,6 @@
                                         ]
                                     }
                                 ]
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^notion\\.id$"
-                                        ],
-                                        "type": "frontmost_application_if"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "k",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
                             },
                             {
                                 "type": "basic",
