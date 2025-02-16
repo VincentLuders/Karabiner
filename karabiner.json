@@ -355,6 +355,30 @@
                                 ],
                                 "type": "basic"
                             },
+                                                        {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "mandatory": ["caps_lock"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "t",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "caps_lock"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "from": {
                                     "key_code": "f",
