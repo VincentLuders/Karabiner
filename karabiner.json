@@ -545,24 +545,24 @@
                                 "type": "basic"
                             },
 {
-    "from": {
-        "key_code": "tab",
-        "modifiers": {
-            "mandatory": [
-                "left_option"
-            ]
-        }
-    },
-    "to": [
-        {
-            "key_code": "w",
-            "modifiers": [
-                "command",
-                "shift"
-            ]
-        }
-    ],
-    "type": "basic"
+"from": {
+    "key_code": "tab",
+    "modifiers": {
+        "mandatory": [
+            "left_option"
+        ]
+    }
+},
+"to": [
+    {
+        "key_code": "w",
+        "modifiers": [
+            "command",
+            "shift"
+        ]
+    }
+],
+"type": "basic"
 }
                         ]
                     },
