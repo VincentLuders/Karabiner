@@ -48,6 +48,17 @@
                                 ]
                             },
                             {
+                                "from": {
+                                    "key_code": "caps_lock"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "escape"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "type": "basic",
                                 "from": {
                                     "key_code": "r",
