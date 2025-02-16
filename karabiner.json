@@ -6,84 +6,6 @@
                     {
                         "description": "Hotkey Mappings",
                         "manipulators": [
-{
-    "from": {
-        "key_code": "caps_lock"
-    },
-    "to": [
-        {
-            "key_code": "escape"
-        }
-    ],
-    "type": "basic",
-    "conditions": [
-        {
-            "type": "variable_if",
-            "name": "caps_lock_used_as_modifier",
-            "value": 0
-        }
-    ]
-},
-{
-    "from": {
-        "key_code": "caps_lock",
-        "modifiers": {
-            "optional": [
-                "any"
-            ]
-        }
-    },
-    "to": [
-        {
-            "set_variable": {
-                "name": "caps_lock_used_as_modifier",
-                "value": 1
-            }
-        }
-    ],
-    "type": "basic"
-},
-{
-    "from": {
-        "key_code": "f",
-        "modifiers": {
-            "mandatory": [
-                "caps_lock"
-            ]
-        }
-    },
-    "to": [
-        {
-            "key_code": "slash",
-            "modifiers": [
-                "command",
-                "shift"
-            ]
-        }
-    ],
-    "type": "basic"
-},
-
-{
-    "from": {
-        "key_code": "caps_lock",
-        "modifiers": {
-            "optional": [
-                "any"
-            ]
-        }
-    },
-    "to": [
-        {
-            "set_variable": {
-                "name": "caps_lock_used_as_modifier",
-                "value": 0
-            }
-        }
-    ],
-    "type": "basic"
-},
-
                             {
                                 "conditions": [
                                     {
@@ -435,6 +357,26 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "f",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "d",
                                     "modifiers": { "mandatory": ["caps_lock"] }
                                 },
@@ -501,6 +443,14 @@
                                         "modifiers": ["command"]
                                     }
                                 ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["caps_lock"] }
+                                },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Finder\" to set d to bounds of window of desktop' -e 'tell application \"System Events\" to tell (first process whose frontmost is true) to tell front window to set bounds to d'" }],
                                 "type": "basic"
                             },
                             {
@@ -834,7 +784,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            }, 
+                            },
                             {
                                 "from": {
                                     "key_code": "delete_or_backspace",
