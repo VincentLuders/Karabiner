@@ -900,6 +900,7 @@
                                         ]
                                     }
                                 },
+                                {
                                 "to": [
                                     {
                                         "key_code": "down_arrow",
