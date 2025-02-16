@@ -1084,14 +1084,6 @@
 
                             {
                                 "from": {
-                                    "key_code": "k",
-                                    "modifiers": { "mandatory": ["caps_lock"] }
-                                },
-                                "to": [{ "key_code": "end" }],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
                                     "key_code": "l",
                                     "modifiers": { "mandatory": ["left_command"] }
                                 },
