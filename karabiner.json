@@ -6,17 +6,24 @@
                     {
                         "description": "Hotkey Mappings",
                         "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "escape"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+{
+    "from": {
+        "key_code": "caps_lock"
+    },
+    "to": [
+        {
+            "key_code": "escape"
+        }
+    ],
+    "type": "basic",
+    "conditions": [
+        {
+            "type": "variable_if",
+            "name": "caps_lock_used_as_modifier",
+            "value": 0
+        }
+    ]
+},
                             {
                                 "conditions": [
                                     {
