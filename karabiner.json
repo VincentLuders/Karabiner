@@ -1081,7 +1081,26 @@
                                                             ]
                                                         },               
                         
-
+{
+    "type": "basic",
+    "from": {
+        "key_code": "i",
+        "modifiers": {
+            "mandatory": [
+                "left_option"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "up_arrow",
+            "modifiers": [
+                "left_command",
+                "left_shift"
+            ]
+        }
+    ]
+},
                             {
                                 "from": {
                                     "key_code": "l",
