@@ -544,23 +544,26 @@
                                 "to": [{ "shell_command": "osascript -e 'tell application \"Finder\" to set d to bounds of window of desktop' -e 'tell application \"System Events\" to tell (first process whose frontmost is true) to tell front window to set bounds to d'" }],
                                 "type": "basic"
                             },
-                            {
-                                "from": {
-                                    "key_code": "tab",
-                                    "modifiers": { "mandatory": ["left_option"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "w",
-                                        "modifiers": ["command"],
-                                        [
-                                            "shift"
-                                        ]
-
-                                    }
-                                ],
-                                "type": "basic"
-                            }
+{
+    "from": {
+        "key_code": "tab",
+        "modifiers": {
+            "mandatory": [
+                "left_option"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "w",
+            "modifiers": [
+                "command",
+                "shift"
+            ]
+        }
+    ],
+    "type": "basic"
+}
                         ]
                     },
                     {
