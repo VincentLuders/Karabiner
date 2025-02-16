@@ -1165,7 +1165,7 @@
             ]
         },
         {
-            "key_code": "delete_forward"
+            "key_code": "delete_or_backspace"
         }
     ]
 },
