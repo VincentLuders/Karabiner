@@ -1047,10 +1047,8 @@
                                         "modifiers": {
                                             "mandatory": [
                                                 "caps_lock"
-                                            ],
-                                            "optional": [
-                                                "any"
                                             ]
+                                            
                                         }
                                     },
                                     "to": [
