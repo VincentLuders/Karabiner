@@ -64,6 +64,26 @@
     "type": "basic"
 },
 
+{
+    "from": {
+        "key_code": "caps_lock",
+        "modifiers": {
+            "optional": [
+                "any"
+            ]
+        }
+    },
+    "to": [
+        {
+            "set_variable": {
+                "name": "caps_lock_used_as_modifier",
+                "value": 0
+            }
+        }
+    ],
+    "type": "basic"
+},
+
                             {
                                 "conditions": [
                                     {
