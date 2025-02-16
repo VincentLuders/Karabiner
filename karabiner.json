@@ -20,6 +20,17 @@
                             {
                                 "type": "basic",
                                 "from": {
+                                    "key_code": "escape"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab"
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
                                     "key_code": "r",
                                     "modifiers": {
                                         "mandatory": [
