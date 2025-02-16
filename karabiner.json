@@ -384,11 +384,23 @@
                                 },
                                 "to": [
                                     {
+                                        "set_variable": {
+                                            "name": "caps_lock_used_as_modifier",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
                                         "key_code": "slash",
                                         "modifiers": [
                                             "command",
                                             "shift"
                                         ]
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "caps_lock_used_as_modifier",
+                                            "value": 0
+                                        }
                                     }
                                 ],
                                 "type": "basic"
