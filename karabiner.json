@@ -125,7 +125,7 @@
                             {
                                 "type": "basic",
                                 "from": {
-                                    "key_code": "tab",
+                                    "key_code": "escape",
                                     "modifiers": {
                                         "mandatory": [
                                             "command"
