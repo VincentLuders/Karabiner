@@ -17,26 +17,26 @@
                                     }
                                 ]
                             },
-                                                        {
-                                                            "type": "basic",
-                                                            "from": {
-                                                                "key_code": "r",
-                                                                "modifiers": {
-                                                                    "mandatory": [
-                                                                        "caps_lock"
-                                                                    ]
-                                                                }
-                                                            },
-                                                            "to": [
-                                                                {
-                                                                    "key_code": "4",
-                                                                    "modifiers": [
-                                                                        "command",
-                                                                        "shift"
-                                                                    ]
-                                                                }
-                                                            ]
-                                                        },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "r",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "4",
+                                        "modifiers": [
+                                            "command",
+                                            "shift"
+                                        ]
+                                    }
+                                ]
+                            },
                             {
                                 "conditions": [
                                     {
@@ -107,6 +107,9 @@
                                     "modifiers": {
                                         "mandatory": [
                                             "command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
                                         ]
                                     }
                                 },
@@ -118,7 +121,7 @@
                                         ]
                                     }
                                 ]
-                            },
+                            }
                             {
                                 "type": "basic",
                                 "from": {
@@ -553,8 +556,12 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "q",
-                                        "modifiers": ["command"]
+                                        "key_code": "w",
+                                        "modifiers": ["command"],
+                                        [
+                                            "shift"
+                                        ]
+
                                     }
                                 ],
                                 "type": "basic"
