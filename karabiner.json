@@ -1039,14 +1039,29 @@
                                 ],
                                 "type": "basic"
                             },
-                            {
-                                "from": {
-                                    "key_code": "i",
-                                    "modifiers": { "mandatory": ["caps_lock"] }
+
+                                {
+                                    "type": "basic",
+                                    "from": {
+                                        "key_code": "i",
+                                        "modifiers": {
+                                            "mandatory": [
+                                                "caps_lock"
+                                            ],
+                                            "optional": [
+                                                "any"
+                                            ]
+                                        }
+                                    },
+                                    "to": [
+                                        {
+                                            "key_code": "home",
+                                            "modifiers": [
+                                                "left_control"
+                                            ]
+                                        }
+                                    ]
                                 },
-                                "to": [{ "key_code": "home" }],
-                                "type": "basic"
-                            },
                             {
                                 "from": {
                                     "key_code": "k",
