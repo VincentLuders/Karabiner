@@ -1053,10 +1053,7 @@
                                     },
                                     "to": [
                                         {
-                                            "key_code": "home",
-                                            "modifiers": [
-                                                "left_control"
-                                            ]
+                                            "key_code": "home"
                                         }
                                     ]
                                 },
