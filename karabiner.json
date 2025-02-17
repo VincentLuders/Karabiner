@@ -4,6 +4,9 @@
             "complex_modifications": {
                 "rules": [
                     
+                    {
+                        "description": "Hotkey Mappings",
+                        "manipulators": [
         {
             "type": "basic",
             "from": {
@@ -17,6 +20,25 @@
             "conditions": [
                 {
                     "type": "frontmost_application_unless",
+                    "bundle_identifiers": [
+                        "^com\\.vivaldi\\."
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "grave_accent_and_tilde"
+            },
+            "to": [
+                {
+                    "key_code": "tab"
+                }
+            ],
+            "conditions": [
+                {
+                    "type": "frontmost_application_if",
                     "bundle_identifiers": [
                         "^com\\.vivaldi\\."
                     ]
