@@ -635,10 +635,9 @@
 },
 "to": [
     {
-        "key_code": "w",
+        "key_code": "q",
         "modifiers": [
-            "command",
-            "left_option"
+            "command"
         ]
     }
 ],
