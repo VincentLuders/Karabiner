@@ -638,7 +638,7 @@
         "key_code": "w",
         "modifiers": [
             "command",
-            "shift"
+            "left_option"
         ]
     }
 ],
