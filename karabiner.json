@@ -230,27 +230,60 @@
                                     }
                                 ]
                             },
-                            {
-                                "conditions": [
-                                    {
-                                        "bundle_identifiers": [
-                                            "^notion\\.id$"
-                                        ],
-                                        "type": "frontmost_application_unless"
-                                    }
-                                ],
-                                "from": {
-                                    "key_code": "q",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "l",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+{
+    "conditions": [
+        {
+            "bundle_identifiers": [
+                "^notion\\.id$"
+            ],
+            "type": "frontmost_application_if"
+        }
+    ],
+    "from": {
+        "key_code": "q",
+        "modifiers": {
+            "mandatory": [
+                "command"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "k",
+            "modifiers": [
+                "command"
+            ]
+        }
+    ],
+    "type": "basic"
+},
+{
+    "conditions": [
+        {
+            "bundle_identifiers": [
+                "^notion\\.id$"
+            ],
+            "type": "frontmost_application_unless"
+        }
+    ],
+    "from": {
+        "key_code": "q",
+        "modifiers": {
+            "mandatory": [
+                "command"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "l",
+            "modifiers": [
+                "command"
+            ]
+        }
+    ],
+    "type": "basic"
+},
                             {
                                 "from": {
                                     "key_code": "t",
