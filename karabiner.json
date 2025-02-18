@@ -245,7 +245,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "k",
+                                        "key_code": "l",
                                         "modifiers": ["command"]
                                     }
                                 ],
