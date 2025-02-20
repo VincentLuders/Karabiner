@@ -859,6 +859,25 @@
                     {
                         "description": "Arrows Highlight and Delete and Backspace",
                         "manipulators": [
+                                                        {
+                                                            "from": {
+                                                                "key_code": "open_bracket",
+                                                                "modifiers": {
+                                                                    "mandatory": [
+                                                                        "left_shift"
+                                                                    ]
+                                                                }
+                                                            },
+                                                            "to": [
+                                                                {
+                                                                    "key_code": "delete_forward",
+                                                                    "modifiers": [
+                                                                        "left_command"
+                                                                    ]
+                                                                }
+                                                            ],
+                                                            "type": "basic"
+                                                        },
                             {
                                 "from": { "key_code": "semicolon" },
                                 "to": [{ "key_code": "delete_or_backspace" }],
@@ -1051,19 +1070,6 @@
                                 "to": [
                                     {
                                         "key_code": "return_or_enter",
-                                        "modifiers": ["left_command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "from": {
-                                    "key_code": "open_bracket",
-                                    "modifiers": { "mandatory": ["left_shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_forward",
                                         "modifiers": ["left_command"]
                                     }
                                 ],
