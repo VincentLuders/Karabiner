@@ -5,7 +5,7 @@
                 "rules": [
                     
 {
-    "description": "Right Option + G to Command + F16",
+    "description": "Remappings Grammar app",
     "manipulators": [
         {
             "type": "basic",
