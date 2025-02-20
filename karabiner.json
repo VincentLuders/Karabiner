@@ -4,6 +4,9 @@
             "complex_modifications": {
                 "rules": [
                     
+                    {
+                        "description": "Hotkey Mappings",
+                        "manipulators": [
 
 
                             {
@@ -11,7 +14,7 @@
                                 "from": {
                                     "key_code": "g",
                                     "modifiers": [
-                                        "right_option"
+                                        "right_command"
                                     ]
                                 },
                                 "to": [
