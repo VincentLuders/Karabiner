@@ -400,6 +400,25 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "spacebar"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f16",
+                                        "modifiers": [
+                                            "commands   "
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
                                     "key_code": "escape",
                                     "modifiers": { "mandatory": ["right_shift"] }
                                 },
