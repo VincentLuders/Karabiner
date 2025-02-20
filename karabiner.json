@@ -1,7 +1,5 @@
 {
     "profiles": [
-
-
         {
             "complex_modifications": {
                 "rules": [
@@ -9,6 +7,27 @@
                     {
                         "description": "Hotkey Mappings",
                         "manipulators": [
+{
+    "type": "basic",
+    "from": {
+        "simultaneous": [
+            {
+                "key_code": "caps_lock"
+            },
+            {
+                "key_code": "spacebar"
+            }
+        ]
+    },
+    "to": [
+        {
+            "key_code": "f16",
+            "modifiers": [
+                "command"
+            ]
+        }
+    ]
+},
         {
             "type": "basic",
             "from": {
@@ -398,27 +417,6 @@
                                 ],
                                 "type": "basic"
                             },
-{
-    "type": "basic",
-    "from": {
-        "simultaneous": [
-            {
-                "key_code": "caps_lock"
-            },
-            {
-                "key_code": "spacebar"
-            }
-        ]
-    },
-    "to": [
-        {
-            "key_code": "f16",
-            "modifiers": [
-                "command"
-            ]
-        }
-    ]
-},
                             {
                                 "from": {
                                     "key_code": "escape",
