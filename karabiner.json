@@ -7,27 +7,25 @@
                     {
                         "description": "Hotkey Mappings",
                         "manipulators": [
-{
-    "type": "basic",
-    "from": {
-        "simultaneous": [
-        {
-            "key_code": "g",
-            "modifiers": [
-                "right_option"
-            ]
-        }
-        ]
-    },
-    "to": [
-        {
-            "key_code": "f16",
-            "modifiers": [
-                "command"
-            ]
-        }
-    ]
-},
+
+
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "g",
+                                    "modifiers": [
+                                        "right_option"
+                                    ]
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f16",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ]
+                            },
         {
             "type": "basic",
             "from": {
