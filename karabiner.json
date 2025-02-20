@@ -11,12 +11,12 @@
     "type": "basic",
     "from": {
         "simultaneous": [
-            {
-                "key_code": "caps_lock"
-            },
-            {
-                "key_code": "spacebar"
-            }
+        {
+            "key_code": "g",
+            "modifiers": [
+                "right_option"
+            ]
+        }
         ]
     },
     "to": [
