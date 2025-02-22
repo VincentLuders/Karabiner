@@ -199,7 +199,7 @@
                                     "key_code": "caps_lock",
                                     "modifiers": {
                                         "mandatory": [
-                                            "option"
+                                            "left_option"
                                         ],
                                         "optional": [
                                             "caps_lock"
