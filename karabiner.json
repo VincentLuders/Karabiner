@@ -25,7 +25,26 @@
                     ]
                 }
             ]
-        }
+        },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f16",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ]
+                }
     ]
 },
                     {
