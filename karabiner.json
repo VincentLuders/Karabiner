@@ -720,9 +720,8 @@
     }
 ],
 "type": "basic"
-}
-                        ]
-                    },
+},
+             
                     {
                         "description": "Application Launchers",
                         "manipulators": [
