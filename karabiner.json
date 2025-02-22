@@ -38,7 +38,7 @@
                 "key_code": "p",
                 "modifiers": {
                     "mandatory": [
-                        "left_option"
+                        "control"
                     ]
                 }
             },
