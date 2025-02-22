@@ -675,57 +675,53 @@
         }
     ]
 },
-{
-    "rules": [
-        {
-            "description": "L-Ctrl → Caps Lock → Action A",
-            "manipulators": [
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "left_control"
-                    },
-                    "to": [
-                        {
-                            "set_variable": {
-                                "name": "ctrl_first",
-                                "value": 1
-                            }
-                        }
-                    ],
-                    "to_delayed_action": {
-                        "to_if_invoked": [
                             {
-                                "set_variable": {
-                                    "name": "ctrl_first",
-                                    "value": 0
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "basic",
-                    "from": {
-                        "key_code": "caps_lock"
-                    },
-                    "conditions": [
-                        {
-                            "name": "ctrl_first",
-                            "type": "variable_if",
-                            "value": 1
-                        }
-                    ],
-                    "to": [
-                        {
-                            "shell_command": "open -a 'ActionA.app'"
-                        }
-                    ]
-                }
-            ]
-        }
-    ]
+                                "from": {
+                                    "key_code": "tab",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "command"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code":"grave_accent_and_tilde",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["caps_lock"] }
+                                },
+                                "to": [{ "shell_command": "osascript -e 'tell application \"Finder\" to set d to bounds of window of desktop' -e 'tell application \"System Events\" to tell (first process whose frontmost is true) to tell front window to set bounds to d'" }],
+                                "type": "basic"
+                            },
+{
+"from": {
+    "key_code": "tab",
+    "modifiers": {
+        "mandatory": [
+            "left_option"
+        ]
+    }
 },
+"to": [
+    {
+        "key_code": "q",
+        "modifiers": [
+            "command"
+        ]
+    }
+],
+"type": "basic"
+},
+             
                     {
                         "description": "Application Launchers",
                         "manipulators": [
