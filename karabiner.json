@@ -646,6 +646,25 @@
                             },
                             {
                                 "from": {
+                                    "key_code": "command_left", 
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f6",
+                                        "modifiers": [
+                                            "right_option"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                            {
+                                "from": {
                                     "key_code": "tab",
                                     "modifiers": {
                                         "mandatory": [
