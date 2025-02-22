@@ -28,9 +28,8 @@
         }
     ]
 },
-
 {
-    "description": "Portuguese",
+    "description": "Right Option + G to Command + F16",
     "manipulators": [
         {
             "type": "basic",
@@ -38,21 +37,22 @@
                 "key_code": "p",
                 "modifiers": {
                     "mandatory": [
-                        "control"
+                        "left_option"
                     ]
                 }
             },
             "to": [
                 {
-                    "key_code": "f4",
+                    "key_code": "f16",
                     "modifiers": [
-                        "control"
+                        "command"
                     ]
                 }
             ]
         }
     ]
 },
+
 
                     {
                         "description": "Hotkey Mappings",
