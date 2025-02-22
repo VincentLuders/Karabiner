@@ -1,14 +1,63 @@
 {
     "profiles": [
-
-
         {
             "complex_modifications": {
                 "rules": [
                     
+{
+    "description": "Remappings Grammar app",
+    "manipulators": [
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "g",
+                "modifiers": {
+                    "mandatory": [
+                        "right_option"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "f16",
+                    "modifiers": [
+                        "command"
+                    ]
+                }
+            ]
+        }
+    ]
+},
+
+{
+    "description": "Portuguese",
+    "manipulators": [
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "p",
+                "modifiers": {
+                    "mandatory": [
+                        "control"
+                    ]
+                }
+            },
+            "to": [
+                {
+                    "key_code": "f4",
+                    "modifiers": [
+                        "control"
+                    ]
+                }
+            ]
+        }
+    ]
+},
+
                     {
                         "description": "Hotkey Mappings",
                         "manipulators": [
+
         {
             "type": "basic",
             "from": {
@@ -166,6 +215,28 @@
                                         "key_code": "tab",
                                         "modifiers": [
                                             "control"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "basic",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_option"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f6",
+                                        "modifiers": [
+                                            "option"
                                         ]
                                     }
                                 ]
@@ -583,22 +654,53 @@
                             }
                         ]
                     },
-                    {
-                        "description": "Command + Caps Lock triggers Command + Tab",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "caps_lock",
-                                    "modifiers": { "mandatory": ["command"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "tab",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+{
+    "from": {
+        "key_code": "caps_lock",
+        "modifiers": {
+            "mandatory": [
+                "command"
+            ]
+        }
+    },
+    "to": [
+        {
+            "key_code": "tab",
+            "modifiers": [
+                "command"
+            ]
+        }
+    ],
+    "type": "basic"
+},
+
+{
+    "type": "basic",
+    "from": {
+        "key_code": "left_command"
+    },
+    "conditions": [
+        {
+            "type": "variable_if",
+            "name": "caps_sequence",
+            "value": 1
+        }
+    ],
+    "to": [
+        {
+            "key_code": "f6",
+            "modifiers": [
+                "left_option"
+            ]
+        },
+        {
+            "set_variable": {
+                "name": "caps_sequence",
+                "value": 0
+            }
+        }
+    ]
+},
                             {
                                 "from": {
                                     "key_code": "tab",
@@ -644,9 +746,8 @@
     }
 ],
 "type": "basic"
-}
-                        ]
-                    },
+},
+             
                     {
                         "description": "Application Launchers",
                         "manipulators": [
