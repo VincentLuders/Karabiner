@@ -4,54 +4,6 @@
             "complex_modifications": {
                 "rules": [
                     
-{
-    "description": "Remappings Grammar app",
-    "manipulators": [
-        {
-            "type": "basic",
-            "from": {
-                "key_code": "g",
-                "modifiers": {
-                    "mandatory": [
-                        "right_option"
-                    ]
-                }
-            },
-            "to": [
-                {
-                    "key_code": "f16",
-                    "modifiers": [
-                        "command"
-                    ]
-                }
-            ]
-        }
-    ]
-},
-{
-    "description": "Right Option + G to Command + F16",
-    "manipulators": [
-        {
-            "type": "basic",
-            "from": {
-                "key_code": "p",
-                "modifiers": {
-                    "mandatory": [
-                        "left_option"
-                    ]
-                }
-            },
-            "to": [
-                {
-                    "key_code": "f16",
-                    "modifiers": [
-                        "command"
-                    ]
-                }
-            ]
-        }
-    ]
-},
 
 
                     {
@@ -77,6 +29,25 @@
                 }
             ]
         },
+                {
+                    "type": "basic",
+                    "from": {
+                        "key_code": "p",
+                        "modifiers": {
+                            "mandatory": [
+                                "left_option"
+                            ]
+                        }
+                    },
+                    "to": [
+                        {
+                            "key_code": "f16",
+                            "modifiers": [
+                                "command"
+                            ]
+                        }
+                    ]
+                },
         {
             "type": "basic",
             "from": {
