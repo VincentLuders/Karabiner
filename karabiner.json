@@ -644,25 +644,33 @@
                                 ],
                                 "type": "basic"
                             },
-                            {
-                                "from": {
-                                    "key_code": "command_left", 
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "caps_lock"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f6",
-                                        "modifiers": [
-                                            "right_option"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+        {
+            "type": "basic",
+            "from": {
+                "key_code": "left_command"
+            },
+            "conditions": [
+                {
+                    "type": "variable_if",
+                    "name": "caps_sequence",
+                    "value": 1
+                }
+            ],
+            "to": [
+                {
+                    "key_code": "f6",
+                    "modifiers": [
+                        "left_option"
+                    ]
+                },
+                {
+                    "set_variable": {
+                        "name": "caps_sequence",
+                        "value": 0
+                    }
+                }
+            ]
+        },
                             {
                                 "from": {
                                     "key_code": "tab",
