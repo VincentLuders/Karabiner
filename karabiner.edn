@@ -10,32 +10,33 @@
 
  :main [
 
-  ;; Rule: Q+F to launch Obsidian (using variables)
-  {:des "Q+F to launch Obsidian (using variables)"
-   :rules [;; Q pressed sets variable
-           [:q ["q_pressed" 1] nil {:alone :q :afterup ["q_pressed" 0]}]
-           ;; F triggers Obsidian when q_pressed is active
-           [:f "open -a 'Obsidian.app'" ["q_pressed" 1]]
-          ]}
+    ;; Rule: Launch Spotify simultaneously (Q+R) - CORRECTED AGAIN
+    {:des "Launch Spotify simultaneously (Q+R)"
+    :rules [
+            ;; Added 'nil' back for the condition placeholder
+            [[:q :r] "open -a 'Spotify.app'" nil {:basic.simultaneous_threshold_milliseconds 1000000}]
+            ]}
 
-  ;; Rule: Launch Spotify simultaneously (Q+R) - CORRECTED
-  {:des "Launch Spotify simultaneously (Q+R)"
-   :rules [
-           [[:q :r] "open -a 'Spotify.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
-          ]}
+    ;; Rule: Launch Arc simultaneously (Q+W) - CORRECTED AGAIN
+    {:des "Launch Arc simultaneously (Q+W)"
+    :rules [
+            ;; Added 'nil' back for the condition placeholder
+            [[:q :w] "open -a 'Arc.app'" nil {:basic.simultaneous_threshold_milliseconds 1000000}]
+            ]}
 
-  ;; Rule: Launch Arc simultaneously (Q+W) - CORRECTED
-  {:des "Launch Arc simultaneously (Q+W)"
-   :rules [
-           [[:q :w] "open -a 'Arc.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
-          ]}
+    ;; Rule: Launch Arc simultaneously (D+V) - Standalone - CORRECTED AGAIN
+    {:des "Launch Arc simultaneously (D+V) - Standalone"
+    :rules [
+            ;; Added 'nil' back for the condition placeholder
+            [[:d :v] "open -a 'Arc.app'" nil {:basic.simultaneous_threshold_milliseconds 1000000}]
+            ]}
 
-  ;; Rule: Launch Arc simultaneously (D+V) - Standalone - CORRECTED
-  ;; Added based on original JSON structure, alongside the layer version below
-  {:des "Launch Arc simultaneously (D+V) - Standalone"
-   :rules [
-           [[:d :v] "open -a 'Arc.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
-          ]}
+    ;; Rule: Launch WhatsApp simultaneously (Q+T) - CORRECTED AGAIN
+    {:des "Launch WhatsApp simultaneously (Q+T)"
+    :rules [
+            ;; Added 'nil' back for the condition placeholder
+            [[:q :t] "open -a 'WhatsApp.app'" nil {:basic.simultaneous_threshold_milliseconds 1000000}]
+         ]}
 
   ;; Rule: D key combinations (D+F, D+V, D+others)
   {:des "D key Layer (Dictation, Arc, Passthrough)"
