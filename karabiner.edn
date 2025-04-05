@@ -74,17 +74,17 @@
            [[:q :t] "open -a 'WhatsApp.app'" nil {:basic.simultaneous_threshold_milliseconds 1000000}]
           ]}
 
-  ;; Rule: Write command alone is enter. - CORRECTED
+  ;; Rule: Write command alone is enter. - CORRECTED (removed ##)
   {:des "Right Command alone is Enter"
    :rules [
-           [## :right_command :right_command nil {:alone :return_or_enter}]
+           [:right_command :right_command nil {:alone :return_or_enter}]
           ]}
 
-  ;; Rule: Complete Caps Lock Configuration (Hyper Key) - CORRECTED
+  ;; Rule: Complete Caps Lock Configuration (Hyper Key) - CORRECTED (removed ##)
   {:des "Caps Lock Hyper Key Configuration"
    :rules [
-           ;; Caps Lock -> Hyper Key (Escape if alone), optional any modifier - CORRECTED
-           [## :caps_lock ["hyper" 1] nil {:alone :escape :afterup ["hyper" 0]}]
+           ;; Caps Lock -> Hyper Key (Escape if alone) - CORRECTED (removed ##)
+           [:caps_lock ["hyper" 1] nil {:alone :escape :afterup ["hyper" 0]}]
 
            ;; Command+Caps Lock to Command+F (Find)
            [:!C :caps_lock :!Cf]
@@ -120,16 +120,16 @@
           [:!Cf3 :display_brightness_increment]
          ]}
 
- ;; Rule: Both Command keys to trigger Wispr (Cmd+0) - CORRECTED
+ ;; Rule: Both Command keys to trigger Wispr (Cmd+0) - CORRECTED (removed ##)
  {:des "Both Command keys for Wispr (Cmd+0)"
   :rules [
-          ;; Left Command pressed sets variable, passes through command - CORRECTED
-          [## :left_command [:left_command ["left_command_pressed" 1]] nil {:afterup ["left_command_pressed" 0]}]
-          ;; Right Command triggers Cmd+0 when left_command_pressed is active - CORRECTED
-          [## :right_command :!C0 ["left_command_pressed" 1]]
+          ;; Left Command pressed sets variable, passes through command - CORRECTED (removed ##)
+          [:left_command [:left_command ["left_command_pressed" 1]] nil {:afterup ["left_command_pressed" 0]}]
+          ;; Right Command triggers Cmd+0 when left_command_pressed is active - CORRECTED (removed ##)
+          [:right_command :!C0 ["left_command_pressed" 1]]
          ]}
 
- ;; Rule: Hotkey Mappings (Miscellaneous) - CORRECTED
+ ;; Rule: Hotkey Mappings (Miscellaneous) - CORRECTED (removed ##)
  {:des "Hotkey Mappings"
   :rules [
           [:!Ccomma {:pkey :button1}] ;; Cmd+, -> Left Click
@@ -157,9 +157,9 @@
           [:f4 :play_or_pause]
           [:f7 :rewind]
           [:f9 :fastforward]
-          ;; CORRECTED Escape mappings with ##
-          [## :escape :!Cf16 [:vivaldi :arc]] ;; Esc -> Cmd+F16 (Vivaldi/Arc)
-          [## :escape :!Ck [:spotify]] ;; Esc -> Cmd+K (Spotify)
+          ;; CORRECTED Escape mappings (removed ##)
+          [:escape :!Cf16 [:vivaldi :arc]] ;; Esc -> Cmd+F16 (Vivaldi/Arc)
+          [:escape :!Ck [:spotify]] ;; Esc -> Cmd+K (Spotify)
           [:escape :tab [:!vivaldi :!arc :!spotify]] ;; Esc -> Tab (elsewhere)
           [:tab :escape [:!vivaldi :!arc :!spotify]] ;; Tab -> Esc (elsewhere)
           [:!Sescape :!Stab [:!vivaldi :!arc :!spotify]] ;; Shift+Esc -> Shift+Tab (elsewhere)
