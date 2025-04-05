@@ -97,11 +97,7 @@
           ]}
 
   ;; Rule: Launch WhatsApp simultaneously (Q+T) - CORRECTED
-  ;; Included once, assuming duplicates in JSON were unintentional
-  {:des "Launch WhatsApp simultaneously (Q+T)"
-   :rules [
-           [[:q :t] "open -a 'WhatsApp.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
-          ]}
+  ;; Included once, assuming duplicates in JSON were S
 
   ;; Rule: Write command alone is enter.
   {:des "Right Command alone is Enter"
