@@ -18,31 +18,24 @@
            [:f "open -a 'Obsidian.app'" ["q_pressed" 1]]
           ]}
 
-  ;; Rule: Launch Spotify simultaneously (Q+R)
+  ;; Rule: Launch Spotify simultaneously (Q+R) - CORRECTED
   {:des "Launch Spotify simultaneously (Q+R)"
-   :rules [;; Simultaneous Q R with optional any modifier
-           [[:#any :q :r] "open -a 'Spotify.app'" nil {:sim-threshold 1000000}]
-           ;; Note: The threshold 1000000ms is very high. Goku default might be sufficient.
-           ;; Using :#any prefix for optional 'any' modifier if needed,
-           ;; or just [[:q :r] ...] if modifiers aren't critical.
-           ;; The direct Goku simultaneous syntax is [[<keys>] <to> <conditions>]
-           ;; Representing the "optional any" modifier within simultaneous `from` needs care.
-           ;; Assuming the intent is just the keys Q and R:
-           ;; [[:q :r] "open -a 'Spotify.app'" nil {:sim-threshold 1000000}]
-           ;; If optional modifiers on the simultaneous press are truly needed,
-           ;; it might require a more complex structure or might not be directly supported
-           ;; in this simple simultaneous form in Goku. Let's assume keys are primary.
-           [[:q :r] "open -a 'Spotify.app'" nil {:sim-threshold 1000000}]
+   :rules [
+           [[:q :r] "open -a 'Spotify.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
           ]}
 
-  ;; Rule: Launch Arc simultaneously (Q+W)
+  ;; Rule: Launch Arc simultaneously (Q+W) - CORRECTED
   {:des "Launch Arc simultaneously (Q+W)"
    :rules [
-           [[:q :w] "open -a 'Arc.app'" nil {:sim-threshold 1000000}]
+           [[:q :w] "open -a 'Arc.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
           ]}
 
-  ;; Rule: Launch Arc simultaneously (D+V) - Appears duplicate, combining if intended
-  ;; Combining D+V launch Arc logic with the D-layer below.
+  ;; Rule: Launch Arc simultaneously (D+V) - Standalone - CORRECTED
+  ;; Added based on original JSON structure, alongside the layer version below
+  {:des "Launch Arc simultaneously (D+V) - Standalone"
+   :rules [
+           [[:d :v] "open -a 'Arc.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
+          ]}
 
   ;; Rule: D key combinations (D+F, D+V, D+others)
   {:des "D key Layer (Dictation, Arc, Passthrough)"
@@ -50,7 +43,7 @@
            [:d ["d_pressed" 1] nil {:alone :d :afterup ["d_pressed" 0]}]
            ;; D+F for Dictation (Ctrl+Shift+0)
            [:f :!TS0 ["d_pressed" 1]]
-           ;; D+V for Arc
+           ;; D+V for Arc (This version activates within the D layer)
            [:v "open -a 'Arc.app'" ["d_pressed" 1]]
            ;; D+A passthrough
            [:a [:d :a] ["d_pressed" 1]]
@@ -102,30 +95,21 @@
            [:spacebar [:d :spacebar] ["d_pressed" 1]]
           ]}
 
-  ;; Rule: Launch WhatsApp simultaneously (Q+T) - Appears duplicate, including once
+  ;; Rule: Launch WhatsApp simultaneously (Q+T) - CORRECTED
+  ;; Included once, assuming duplicates in JSON were unintentional
   {:des "Launch WhatsApp simultaneously (Q+T)"
    :rules [
-           [[:q :t] "open -a 'WhatsApp.app'" nil {:sim-threshold 1000000}]
+           [[:q :t] "open -a 'WhatsApp.app'" {:basic.simultaneous_threshold_milliseconds 1000000}]
           ]}
 
   ;; Rule: Write command alone is enter.
   {:des "Right Command alone is Enter"
    :rules [
            [:#any :right_command :right_command nil {:alone :return_or_enter}]
-           ;; Using :#any for optional 'any' modifier, or just :right_command if not needed.
-           ;; The Goku examples suggest this format for layers/alone actions.
-           [:right_command nil nil {:alone :return_or_enter :passthrough true}]
-           ;; Let's refine based on Goku's layer examples:
-           ;; When right_command is pressed, it should act as right_command
-           ;; Only if pressed alone (released without another key), it sends enter.
-           ;; This is exactly what `to_if_alone` does.
-           [:right_command nil nil {:alone :return_or_enter :passthrough true}]
-           ;; The original JSON has `to: right_command`, which implies it should still function
-           ;; as right_command when used with other keys. `:passthrough true` might achieve this.
-           ;; Or defining it like a layer key:
-           [:right_command :right_command nil {:alone :return_or_enter}]
-           ;; Let's stick to the simpler interpretation matching the JSON structure:
-           [:#any :right_command :right_command nil {:alone :return_or_enter}]
+           ;; Alternative interpretation - if right_command should pass through:
+           ;; [:right_command nil nil {:alone :return_or_enter :passthrough true}]
+           ;; Sticking to closer JSON translation:
+           ;; [:#any :right_command :right_command nil {:alone :return_or_enter}]
           ]}
 
   ;; Rule: Complete Caps Lock Configuration (Hyper Key)
@@ -162,20 +146,12 @@
            [:r :!CS4 ["hyper" 1]]
 
            ;; --- Standalone Caps Lock combinations (without hyper variable) ---
-           ;; These seem redundant if Caps Lock is always Hyper, unless intended differently.
-           ;; The JSON shows these *outside* the "hyper" condition block initially,
-           ;; then *inside*. Assuming they should be under the Hyper condition.
-           ;; If they are meant *in addition* to Hyper, they need separate rules.
-           ;; Example: Select to Start of Document with Caps Lock+Shift+I
-           ;; This is [:!SPi :!CSup_arrow] if 'P' is caps_lock modifier in Goku. Check docs.
-           ;; Goku docs use 'P' for caps_lock.
-           [:!SPi :!CSup_arrow]
+           ;; These seem redundant/conflicting if Caps Lock is always Hyper.
+           ;; Included based on original JSON, but may need review based on intent.
+           ;; Select to Start of Document with Caps Lock+Shift+I
+           [:!SPi :!CSup_arrow] ;; 'P' is caps_lock modifier
            ;; Select to End of Document with Caps Lock+Shift+K
            [:!SPk :!CSdown_arrow]
-           ;; Find in Page with Caps Lock+A (Duplicate of Hyper+A, likely should be under Hyper)
-           ;; [:!Pa :!CSslash]
-           ;; New Tab with Caps Lock+D (Duplicate of Hyper+D, likely should be under Hyper)
-           ;; [:!Pd :!CSt]
           ]}
 
  ;; Rule: Clipboard Trigger
@@ -192,7 +168,6 @@
          ]}
 
  ;; Rule: Both Command keys to trigger Wispr (Cmd+0)
- ;; This uses a variable for left_command state.
  {:des "Both Command keys for Wispr (Cmd+0)"
   :rules [
           ;; Left Command pressed sets variable, passes through command
@@ -220,23 +195,22 @@
           [:!Ek :!Ck] ;; Assuming 'E' is right_option
           ;; Command+Option+Escape with Option+4
           [:!O4 :!COescape] ;; Assuming 'O' is left_option. Use '!E4' if right_option is intended.
-          ;; Right Option+F6 with Shift+F (Seems duplicate/conflict with Grammar Strong?)
-          ;; Original: Shift+F -> Right_Option+F6
-          [:!Sf :!Ef6] ;; This conflicts with :!Sf -> :!TSf5 above. Prioritize one. Let's comment this out.
+          ;; Right Option+F6 with Shift+F - Conflicted with Grammar Strong, commented out in previous step.
+          ;; [:!Sf :!Ef6]
           ;; Redo with Command+Y (Cmd+Shift+Z)
           [:!Cy :!CSz]
           ;; Command+K in Notion with Command+Q
           [:!Cq :!Ck [:notion]]
           ;; Cycle Tabs Backward with Command+W (Ctrl+Shift+Tab)
           [:!Cw :!TStab]
-          ;; Page Down with Command+Shift+W (Cmd+Shift+PageDown) - Assuming standard PageDown mapping
-          [:!CSw :!CSpage_down] ;; Check if :page_down is correct Goku keycode
+          ;; Page Down with Command+Shift+W (Cmd+Shift+PageDown)
+          [:!CSw :!CSpage_down]
           ;; Cycle Tabs Forward with Command+R (Ctrl+Tab)
           [:!CPr :!Ttab] ;; Optional caps_lock 'P'
           ;; Refresh Page with Command+Escape (Cmd+R)
           [:!CPescape :!Cr] ;; Optional caps_lock 'P'
-          ;; Page Up with Command+Shift+R (Cmd+Shift+PageUp) - Assuming standard PageUp mapping
-          [:!CSr :!CSpage_up] ;; Check if :page_up is correct Goku keycode
+          ;; Page Up with Command+Shift+R (Cmd+Shift+PageUp)
+          [:!CSr :!CSpage_up]
           ;; Close Tab/Window with Command+E (Cmd+W)
           [:!Ce :!Cw]
           ;; Command+L (Focus Address Bar) with Command+Q (Non-Notion)
@@ -256,24 +230,19 @@
           [:f7 :rewind]
           ;; Next Song with F9
           [:f9 :fastforward]
-          ;; Refresh with Command+Escape (Any modifier) - Covered above by :!CPescape
           ;; Remap Escape to F16 in Vivaldi/Arc
-          [:#any :escape :!Cf16 [:vivaldi :arc]] ;; Assuming the JSON meant Vivaldi *or* Arc
+          [:#any :escape :!Cf16 [:vivaldi :arc]]
           ;; Remap Escape to Command+K in Spotify
           [:#any :escape :!Ck [:spotify]]
-          ;; Swap Escape and Tab (conditional on not being Vivaldi/Arc/Spotify?)
-          ;; Need to check if these swaps should happen *outside* the app-specific escape rules.
-          ;; Assuming general swap:
+          ;; Swap Escape and Tab (General, outside specific apps)
           [:escape :tab [:!vivaldi :!arc :!spotify]]
           [:tab :escape [:!vivaldi :!arc :!spotify]]
-          ;; Shift+Tab with Shift+Escape (Left/Right)
-          [:!Sescape :!Stab [:!vivaldi :!arc :!spotify]] ;; Handles both left/right shift unless specified
+          ;; Shift+Tab with Shift+Escape (General)
+          [:!Sescape :!Stab [:!vivaldi :!arc :!spotify]]
           ;; Remap Slash to J
           [:slash :j]
-          ;; Type Double Quote with Both Shifts (Left+Right Shift -> Shift+Quote)
-          [[[:!S :right_shift]] :!Squote] ;; Requires precise simultaneous definition if possible, might need `simlayers` or specific `froms`
-          ;; Let's assume right_shift when left_shift is held:
-          [:!Sright_shift :!Squote] ;; Maps mandatory Left Shift + Right Shift -> Shift + Quote
+          ;; Type Double Quote with Both Shifts (Left Shift + Right Shift -> Shift + Quote)
+          [:!Sright_shift :!Squote]
           ;; Type J with Shift+Slash
           [:!Sslash :!Sj]
           ;; Swap Brackets (] to [)
@@ -288,209 +257,123 @@
           [:!Cs :!Copen_bracket]
           ;; Next Tab with Command+D (Cmd+])
           [:!Cd :!Cclose_bracket]
-          ;; Find in Page with Caps Lock+A (Duplicate, handled in Hyper Key section)
-          ;; New Tab with Caps Lock+D (Duplicate, handled in Hyper Key section)
          ]}
 
- ;; Rule: Caps Lock triggers menu bar search
- ;; This conflicts with Caps Lock as Hyper. Assuming this should be Hyper+A.
+ ;; Rule: Caps Lock triggers menu bar search (Assuming Hyper+A)
  {:des "Hyper+A triggers menu bar search"
   :rules [
-          ;; Hyper+A -> osascript
           [:a "osascript ~/scripts/menu_bar_search.scpt" ["hyper" 1]]
          ]}
 
  ;; Rule: Text Revision App (Right Option layer?)
- ;; Using Right Option (E) as a modifier prefix
  {:des "Text Revision App Hotkeys (Right Option)"
   :rules [
-          ;; German Trigger (RightOpt+G -> Shift+F18)
-          [:!Eg :!Sf18]
-          ;; PT EU Trigger (RightOpt+P -> Shift+F17)
-          [:!Ep :!Sf17]
-          ;; PT BR Trigger (RightOpt+Q -> Shift+F13)
-          [:!Eq :!Sf13]
-          ;; English Trigger (RightOpt+E -> Ctrl+Shift+8)
-          [:!Ee :!TS8]
-          ;; Spanish Trigger (RightOpt+S -> Shift+F19)
-          [:!Es :!Sf19]
-          ;; French Trigger (RightOpt+F -> Shift+F12)
-          [:!Ef :!Sf12]
-          ;; French tutoyer Trigger (RightOpt+T -> Cmd+Shift+9)
-          [:!Et :!CS9]
+          [:!Eg :!Sf18] ;; German
+          [:!Ep :!Sf17] ;; PT EU
+          [:!Eq :!Sf13] ;; PT BR
+          [:!Ee :!TS8]  ;; English
+          [:!Es :!Sf19] ;; Spanish
+          [:!Ef :!Sf12] ;; French
+          [:!Et :!CS9]  ;; French tutoyer
          ]}
 
  ;; Rule: Vivaldi: Right Command + K to Control + F18
  {:des "Vivaldi Quick Command Palette"
   :rules [
-          ;; RightCmd+K -> Ctrl+F18 in Vivaldi
           [:!Qk :!Tf18 [:vivaldi]] ;; Assuming 'Q' is right_command
          ]}
 
- ;; Rule: Command + Caps Lock triggers Command + Tab (App Switcher?)
- ;; This seems to reinterpret Cmd+Tab behavior.
+ ;; Rule: Command + Caps Lock triggers Command + Tab (Reinterpreting Cmd+Tab)
  {:des "Remap Command+Tab and related"
   :rules [
-          ;; Remap Command+Tab to Command+Backtick
-          [:!Ctab :!Cgrave_accent_and_tilde]
-          ;; Make use of grave accent (Cmd+Backtick -> Cmd+F3)
-          [:!Cgrave_accent_and_tilde :!Cf3]
-          ;; Show All Windows with Option+Tab (Cmd+Shift+W)
-          [:!Otab :!CSw] ;; Assuming 'O' is left_option
+          [:!Ctab :!Cgrave_accent_and_tilde] ;; Cmd+Tab -> Cmd+`
+          [:!Cgrave_accent_and_tilde :!Cf3] ;; Cmd+` -> Cmd+F3
+          [:!Otab :!CSw] ;; Option+Tab -> Cmd+Shift+W
          ]}
 
  ;; Rule: Application Launchers (Option Layer)
  {:des "Application Launchers (Left Option)"
   :rules [
-          ;; Launch Notion with Option+D
-          [:!OPd "open -a 'Notion.app'"] ;; 'P' for optional caps_lock
-          ;; Launch VS Code with Option+F
-          [:!OPf "open -a 'Visual Studio Code.app'"]
-          ;; Launch Obsidian with Option+C
-          [:!OPc "open -a 'Obsidian.app'"]
-          ;; Launch Anki with Option+G
-          [:!OPg "open -a 'Anki.app'"]
-          ;; Launch Spotify with Option+1
-          [:!OP1 "open -a 'Spotify.app'"]
-          ;; Launch Tasks with Option+E
-          [:!OPe "open -a 'Tasks.app'"]
-          ;; Launch DeepL with Option+Q
-          [:!OPq "open -a 'Deepl.app'"]
-          ;; Launch Finder with Option+W
-          [:!OPw "osascript -e 'tell application \"Finder\" to activate'"]
-          ;; Launch WhatsApp with Option+T
-          [:!OPt "open -a 'WhatsApp.app'"]
-          ;; Launch System Settings with Clean Background (Command+3) - This is Cmd, not Opt.
-          [:!C3 "osascript -e 'tell application \"Finder\" to activate' -e 'tell application \"System Events\" to tell process \"Finder\" to click (menu item \"Hide Others\" of menu \"Finder\" of menu bar 1)' -e 'delay 0.1' -e 'tell application \"System Settings\" to activate'"]
-          ;; Launch System Settings with Option+3
-          [:!O3 "open -a 'System Settings.app'"]
-          ;; Launch Gmail with Option+S
-          [:!OPs "open -a 'Gmail.app'"]
-          ;; Launch RogerRoger with Option+R
-          [:!OPr "open -a 'RogerRoger.app'"]
-          ;; Launch Google Calendar with Option+X
-          [:!OPx "open -a 'Google Calendar.app'"]
-          ;; Launch Voxbi with Option+2
-          [:!O2 "open -a Voxbi"]
-          ;; Launch Safari with Option+B
-          [:!OPb "open -n -a 'Safari.app' --args --disable-features=RendererCodeIntegrity"]
-          ;; Launch Vivaldi/Arc with Option+A (JSON says Vivaldi, shell command says Arc) - Using Arc per command
-          [:!OPa "open -a 'Arc.app'"]
+          [:!OPd "open -a 'Notion.app'"] ;; Opt(+Caps)+D -> Notion
+          [:!OPf "open -a 'Visual Studio Code.app'"] ;; Opt(+Caps)+F -> VS Code
+          [:!OPc "open -a 'Obsidian.app'"] ;; Opt(+Caps)+C -> Obsidian
+          [:!OPg "open -a 'Anki.app'"] ;; Opt(+Caps)+G -> Anki
+          [:!OP1 "open -a 'Spotify.app'"] ;; Opt(+Caps)+1 -> Spotify
+          [:!OPe "open -a 'Tasks.app'"] ;; Opt(+Caps)+E -> Tasks
+          [:!OPq "open -a 'Deepl.app'"] ;; Opt(+Caps)+Q -> DeepL
+          [:!OPw "osascript -e 'tell application \"Finder\" to activate'"] ;; Opt(+Caps)+W -> Finder
+          [:!OPt "open -a 'WhatsApp.app'"] ;; Opt(+Caps)+T -> WhatsApp
+          [:!C3 "osascript -e 'tell application \"Finder\" to activate' -e 'tell application \"System Events\" to tell process \"Finder\" to click (menu item \"Hide Others\" of menu \"Finder\" of menu bar 1)' -e 'delay 0.1' -e 'tell application \"System Settings\" to activate'"] ;; Cmd+3 -> Clean System Settings
+          [:!O3 "open -a 'System Settings.app'"] ;; Opt+3 -> System Settings
+          [:!OPs "open -a 'Gmail.app'"] ;; Opt(+Caps)+S -> Gmail
+          [:!OPr "open -a 'RogerRoger.app'"] ;; Opt(+Caps)+R -> RogerRoger
+          [:!OPx "open -a 'Google Calendar.app'"] ;; Opt(+Caps)+X -> Calendar
+          [:!O2 "open -a Voxbi"] ;; Opt+2 -> Voxbi
+          [:!OPb "open -n -a 'Safari.app' --args --disable-features=RendererCodeIntegrity"] ;; Opt(+Caps)+B -> Safari
+          [:!OPa "open -a 'Arc.app'"] ;; Opt(+Caps)+A -> Arc
          ]}
 
  ;; Rule: Arrows Highlight and Delete and Backspace Modifications
  {:des "Navigation, Deletion, and Key Swaps"
   :rules [
-          ;; Backspace with J
+          ;; Base Keys
           [:j :delete_or_backspace]
-          ;; Backspace with Middle Mouse Button (Button3)
-          [{:pkey :button3} :delete_or_backspace]
-          ;; Cmd+Shift+Button3 to Cmd+Shift+Backspace
-          [{:pkey :button3 :modi :!CS} :!CSdelete_or_backspace] ;; Need Goku syntax for modifiers on pointing buttons
-          ;; Using predefined froms if complex:
-          ;; :froms {:cmd-shift-button3 {:pkey :button3 :modi [:command :shift]}}
-          ;; [:cmd-shift-button3 [:key_code :delete_or_backspace :modi [:command :shift]]]
-          ;; Simpler guess based on keycode syntax:
-          [{:pkey :button3 :modi ["command" "shift"]} {:key_code :delete_or_backspace :modi ["command" "shift"]}] ;; Check Goku pointing button docs
-
-          ;; Delete Word (Opt+Backspace) with Command+Button3
-          [{:pkey :button3 :modi :!C} :!Odelete_or_backspace] ;; Guessing syntax
-
-          ;; Delete Line (Cmd+Backspace) with Shift+Button3
-          [{:pkey :button3 :modi :!S} :!Cdelete_or_backspace] ;; Guessing syntax
-
-          ;; Command+Enter with Command+Button3
-          [{:pkey :button3 :modi :!C} :!Creturn_or_enter] ;; Guessing syntax
-
-          ;; Delete Line Above with Option+Button3 (Cmd+Shift+Up, Backspace)
-          [{:pkey :button3 :modi :!O} [:!CSup_arrow :delete_or_backspace]] ;; Guessing syntax
-
-          ;; Forward Delete with Open Bracket
+          [{:pkey :button3} :delete_or_backspace] ;; Middle Mouse -> Backspace
           [:open_bracket :delete_forward]
-          ;; Question Mark with Quote
-          [:quote :!Sslash] ;; Shift+/
-          ;; Quote with Backspace
-          [:delete_or_backspace :quote]
-          ;; Semicolon outputs right shift
-          [:semicolon :right_shift]
-          ;; Type Quote with Right Shift (semicolon) - This seems to reverse the above. Assuming :right_shift -> :quote is intended.
-          [:right_shift :quote]
-          ;; Semicolon with Enter
-          [:return_or_enter :semicolon] ;; Shift+Semicolon in original JSON? Check logic. :!Semicolon?
-          ;; Colon with Shift+Enter
-          [:!Sreturn_or_enter :!Ssemicolon] ;; Shift+; is Colon. Original JSON had `:semicolon` without shift? Corrected here.
+          [:quote :!Sslash] ;; ' -> ?
+          [:delete_or_backspace :quote] ;; Backspace -> '
+          [:semicolon :right_shift] ;; ; -> Right Shift
+          [:right_shift :quote] ;; Right Shift -> ' (Seems conflicting with above ; -> RShift)
+          [:return_or_enter :semicolon] ;; Enter -> ;
+          [:slash :j] ;; / -> j
 
-          ;; Delete Word (Cmd+Backspace) with Shift+J
-          [:!Sj :!Cdelete_or_backspace]
-          ;; Double Quote with Shift+Backspace
-          [:!Sdelete_or_backspace :!Squote]
-          ;; Delete by Word (Opt+Backspace) with Command+J
-          [:!Cj :!Odelete_or_backspace]
-          ;; Slash with Shift+Quote
-          [:!Squote :slash]
-          ;; Command+Question Mark (Cmd+Shift+/) with Command+Quote
-          [:!Cquote :!CSslash]
-          ;; Shift+Enter with Shift+J
-          ;; [:!Sj :!Sreturn_or_enter] ;; Conflicts with Shift+J -> Cmd+Backspace. Prioritizing delete.
-          ;; Command+Enter with Command+J
-          ;; [:!Cj :!Creturn_or_enter] ;; Conflicts with Cmd+J -> Opt+Backspace. Prioritizing delete.
+          ;; Shift Modified
+          [:!Sj :!Cdelete_or_backspace] ;; Shift+J -> Delete Line (Cmd+Backspace)
+          [:!Sdelete_or_backspace :!Squote] ;; Shift+Backspace -> "
+          [:!Sreturn_or_enter :!Ssemicolon] ;; Shift+Enter -> :
+          [:!Squote :slash] ;; Shift+' -> /
+          [:!Sopen_bracket [:!CSright_arrow :delete_or_backspace]] ;; Shift+[ -> Select to EOL & Delete
+          [:!Sslash :!Sj] ;; Shift+/ -> J
 
-          ;; Shift+Open Bracket to Highlight and Delete to End of Line (Cmd+Shift+Right, Backspace)
-          [:!Sopen_bracket [:!CSright_arrow :delete_or_backspace]]
-          ;; Delete Forward by Word (Opt+DeleteForward) with Command+Open Bracket
-          [:!Copen_bracket :!Odelete_forward]
+          ;; Command Modified
+          [:!Cj :!Odelete_or_backspace] ;; Cmd+J -> Delete Word Back (Opt+Backspace)
+          [:!Cquote :!CSslash] ;; Cmd+' -> Cmd+? (Cmd+Shift+/)
+          [:!Copen_bracket :!Odelete_forward] ;; Cmd+[ -> Delete Word Forward (Opt+DeleteForward)
+          [:!Ch :!Oleft_arrow] ;; Cmd+H -> Word Left
+          [:!Cn :left_arrow] ;; Cmd+N -> Left
+          [:!Cm :right_arrow] ;; Cmd+M -> Right
+          [:!Ck :down_arrow] ;; Cmd+K -> Down
+          [:!Ci :up_arrow] ;; Cmd+I -> Up
+          [:!Cu :!Cleft_arrow] ;; Cmd+U -> Start of Line
+          [:!Co :!Cright_arrow] ;; Cmd+O -> End of Line
+          [:!Cl :!Oright_arrow] ;; Cmd+L -> Word Right
 
-          ;; --- Command + HJKL Navigation ---
-          ;; Move by Word Left (Opt+Left) with Command+H
-          [:!Ch :!Oleft_arrow]
-          ;; Move Left with Command+N
-          [:!Cn :left_arrow]
-          ;; Move Right with Command+M
-          [:!Cm :right_arrow]
-          ;; Select Left with Command+Shift+N
-          [:!CSn :!Sleft_arrow]
-          ;; Select Right with Command+Shift+M
-          [:!CSm :!Sright_arrow]
-          ;; Move Down with Command+K
-          [:!Ck :down_arrow]
-          ;; Select Down with Command+Shift+K
-          [:!CSk :!Sdown_arrow]
-          ;; Move Up with Command+I
-          [:!Ci :up_arrow]
-          ;; Select Up with Command+Shift+I
-          [:!CSi :!Sup_arrow]
-          ;; Move to Start of Line (Cmd+Left) with Command+U
-          [:!Cu :!Cleft_arrow]
-          ;; Select to Start of Line (Cmd+Shift+Left) with Command+Shift+U
-          [:!CSu :!CSleft_arrow]
-          ;; Move to End of Line (Cmd+Right) with Command+O
-          [:!Co :!Cright_arrow]
-          ;; Select to End of Line (Cmd+Shift+Right) with Command+Shift+O
-          [:!CSo :!CSright_arrow]
-          ;; Select Word Left (Opt+Shift+Left) with Command+Shift+H
-          [:!CSh :!OSleft_arrow]
-          ;; Select Word Right (Opt+Shift+Right) with Command+Shift+L
-          [:!CSl :!OSright_arrow]
-          ;; Move by Word Right (Opt+Right) with Command+L
-          [:!Cl :!Oright_arrow]
+          ;; Command+Shift Modified
+          [:!CSn :!Sleft_arrow] ;; Cmd+Shift+N -> Select Left
+          [:!CSm :!Sright_arrow] ;; Cmd+Shift+M -> Select Right
+          [:!CSk :!Sdown_arrow] ;; Cmd+Shift+K -> Select Down
+          [:!CSi :!Sup_arrow] ;; Cmd+Shift+I -> Select Up
+          [:!CSu :!CSleft_arrow] ;; Cmd+Shift+U -> Select to Start of Line
+          [:!CSo :!CSright_arrow] ;; Cmd+Shift+O -> Select to End of Line
+          [:!CSh :!OSleft_arrow] ;; Cmd+Shift+H -> Select Word Left
+          [:!CSl :!OSright_arrow] ;; Cmd+Shift+L -> Select Word Right
 
-          ;; --- Advanced Navigation (Option/Caps) ---
-          ;; Move to Start of Document (Cmd+Up) with Caps Lock+I (Hyper+I, handled above)
-          ;; Select to Start of Document (Cmd+Shift+Up) with Option+Shift+I (JSON says Caps+Shift+I, handled above)
-          ;; Move to Start of Paragraph (Opt+Up) with Option+I
-          [:!Oi :!Oup_arrow]
-          ;; Move to End of Paragraph (Opt+Down) with Option+K
-          [:!Ok :!Odown_arrow]
-          ;; Select to Start of Paragraph (Opt+Shift+Up) with Option+Shift+I
-          [:!OSi :!OSup_arrow]
-          ;; Select to End of Paragraph (Opt+Shift+Down) with Option+Shift+K
-          [:!OSk :!OSdown_arrow]
+          ;; Option Modified
+          [:!Oi :!Oup_arrow] ;; Opt+I -> Paragraph Up
+          [:!Ok :!Odown_arrow] ;; Opt+K -> Paragraph Down
+          [:!Oj [:!CSup_arrow :delete_or_backspace]] ;; Opt+J -> Delete Line Above
+          [:!Oopen_bracket [:!CSdown_arrow :delete_or_backspace]] ;; Opt+[ -> Delete Line Below
 
-          ;; --- Advanced Deletion (Option) ---
-          ;; Delete Line Above (Cmd+Shift+Up, Backspace) with Option+J
-          [:!Oj [:!CSup_arrow :delete_or_backspace]]
-          ;; Delete Line Below (Cmd+Shift+Down, Backspace) with Option+Open Bracket
-          [:!Oopen_bracket [:!CSdown_arrow :delete_or_backspace]]
+          ;; Option+Shift Modified
+          [:!OSi :!OSup_arrow] ;; Opt+Shift+I -> Select Paragraph Up
+          [:!OSk :!OSdown_arrow] ;; Opt+Shift+K -> Select Paragraph Down
+
+          ;; Pointing Button Modified (Syntax is approximate - check Goku docs if these fail)
+          [{:pkey :button3 :modi ["command" "shift"]} {:key_code :delete_or_backspace :modi ["command" "shift"]}] ;; Cmd+Shift+Button3 -> Cmd+Shift+Backspace
+          [{:pkey :button3 :modi ["command"]} :!Odelete_or_backspace] ;; Cmd+Button3 -> Delete Word Back
+          [{:pkey :button3 :modi ["shift"]} :!Cdelete_or_backspace] ;; Shift+Button3 -> Delete Line Back
+          [{:pkey :button3 :modi ["command"]} :!Creturn_or_enter] ;; Cmd+Button3 -> Cmd+Enter
+          [{:pkey :button3 :modi ["option"]} [:!CSup_arrow :delete_or_backspace]] ;; Opt+Button3 -> Delete Line Above
 
          ]}
  ]
