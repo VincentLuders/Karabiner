@@ -80,13 +80,13 @@
            [:right_command :right_command nil {:alone :return_or_enter}]
           ]}
 
-  ;; Rule: Complete Caps Lock Configuration (Hyper Key) - CORRECTED AGAIN
+  ;; Rule: Complete Caps Lock Configuration (Hyper Key)
   {:des "Caps Lock Hyper Key Configuration"
    :rules [
            ;; Caps Lock -> Hyper Key (Escape if alone)
            [:caps_lock ["hyper" 1] nil {:alone :escape :afterup ["hyper" 0]}]
 
-           ;; Command+Caps Lock to Command+F (Find) - CORRECTED AGAIN
+           ;; Command+Caps Lock to Command+F (Find)
            [:!Ccaps_lock :!Cf]
 
            ;; Conditional Mappings (when hyper is 1)
@@ -129,10 +129,11 @@
           [:right_command :!C0 ["left_command_pressed" 1]]
          ]}
 
- ;; Rule: Hotkey Mappings (Miscellaneous)
+ ;; Rule: Hotkey Mappings (Miscellaneous) - CORRECTED <TO> SYNTAX
  {:des "Hotkey Mappings"
   :rules [
-          [:!Ccomma {:pkey :button1}] ;; Cmd+, -> Left Click
+          ;; Left Command + Comma to Left Mouse Button - CORRECTED <to> syntax
+          [:!Ccomma {:pointing_button :button1}]
           [:!Cf :!Ctab] ;; Cmd+F -> Cmd+Tab (App Switch)
           [:grave_accent_and_tilde :tab [:vivaldi :arc]] ;; ` -> Tab (in Vivaldi/Arc)
           [:!CSc :!COc [:finder]] ;; Cmd+Shift+C -> Cmd+Opt+C (in Finder)
@@ -232,7 +233,7 @@
   :rules [
           ;; Base Keys
           [:j :delete_or_backspace]
-          [{:pkey :button3} :delete_or_backspace]
+          [{:pkey :button3} :delete_or_backspace] ;; <--- Check <from> syntax for pointing buttons too
           [:open_bracket :delete_forward]
           [:quote :!Sslash]
           [:delete_or_backspace :quote]
@@ -282,12 +283,12 @@
           [:!OSi :!OSup_arrow]
           [:!OSk :!OSdown_arrow]
 
-          ;; Pointing Button Modified (Syntax is approximate)
-          [{:pkey :button3 :modi ["command" "shift"]} {:key_code :delete_or_backspace :modi ["command" "shift"]}]
-          [{:pkey :button3 :modi ["command"]} :!Odelete_or_backspace]
-          [{:pkey :button3 :modi ["shift"]} :!Cdelete_or_backspace]
-          [{:pkey :button3 :modi ["command"]} :!Creturn_or_enter] #_<- Syntax might need check
-          [{:pkey :button3 :modi ["option"]} [:!CSup_arrow :delete_or_backspace]]
+          ;; Pointing Button Modified (Syntax is approximate - CHECK THESE)
+          [{:pkey :button3 :modi ["command" "shift"]} {:key_code :delete_or_backspace :modi ["command" "shift"]}] ;; <--- Check <from> and <to> syntax
+          [{:pkey :button3 :modi ["command"]} :!Odelete_or_backspace] ;; <--- Check <from> syntax
+          [{:pkey :button3 :modi ["shift"]} :!Cdelete_or_backspace] ;; <--- Check <from> syntax
+          [{:pkey :button3 :modi ["command"]} :!Creturn_or_enter] ;; <--- Check <from> syntax
+          [{:pkey :button3 :modi ["option"]} [:!CSup_arrow :delete_or_backspace]] ;; <--- Check <from> syntax
 
          ]}
  ]
