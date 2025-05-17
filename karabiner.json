@@ -1144,6 +1144,27 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Hyper + V to Option + F8 (OCR)",
+                                "from": {
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f8",
+                                        "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "Take Screenshot with Hyper+R",
                                 "from": {
                                     "key_code": "r",
