@@ -2885,26 +2885,26 @@
                                 ],
                                 "type": "basic"
                             },
-                                {
-                                    "description": "Move to Start of Line with Command+U",
-                                    "from": {
-                                        "key_code": "u",
-                                        "modifiers": {
-                                            "mandatory": [
-                                                "left_command"
-                                            ]
-                                        }
-                                    },
-                                    "to": [
-                                        {
-                                            "key_code": "left_arrow",
-                                            "modifiers": [
-                                                "fn"
-                                            ]
-                                        }
-                                    ],
-                                    "type": "basic"
+                            {
+                                "description": "Move to Start of Line with Command+U",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "mandatory": [
+                                            "left_command"
+                                        ]
+                                    }
                                 },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "fn"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "description": "Select to Start of Line with Command+Shift+U",
                                 "from": {
@@ -2928,7 +2928,7 @@
                                 "to": [
                                     {
                                         "key_code": "right_arrow",
-                                        "modifiers": ["fn"]
+                                        "modifiers": ["command"]
                                     }
                                 ],
                                 "type": "basic"
