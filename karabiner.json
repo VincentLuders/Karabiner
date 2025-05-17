@@ -2780,41 +2780,22 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + U to Scroll to Top",
-                                "from": {
-                                    "key_code": "u",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "hyper"
-                                        ]
-                                    }
-                                },
-                                "to": [
+                                "description": "Hyper + V to Option + F8 (OCR)",
+                                "conditions": [
                                     {
-                                        "key_code": "left_arrow",
-                                        "modifiers": [
-                                            "fn"
-                                        ]
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
                                     }
                                 ],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Hyper + O to Scroll to Bottom",
                                 "from": {
-                                    "key_code": "o",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "hyper"
-                                        ]
-                                    }
+                                    "key_code": "v",
+                                    "modifiers": { "optional": ["any"] }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "right_arrow",
-                                        "modifiers": [
-                                            "fn"
-                                        ]
+                                        "key_code": "f8",
+                                        "modifiers": ["left_option"]
                                     }
                                 ],
                                 "type": "basic"
