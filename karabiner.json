@@ -142,6 +142,25 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "",
+                                "from": {
+                                    "key_code": "d"
+                                },
+                                "to": [
+                                    {
+                                        "shell_command": "open -a 'Ghosty.app'"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "Q + Spacebar to launch Arc",
                                 "from": { "key_code": "spacebar" },
                                 "to": [
