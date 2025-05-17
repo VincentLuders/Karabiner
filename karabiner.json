@@ -2780,24 +2780,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Hyper + V to Option + F8 (OCR)",
-                                "from": {
-                                    "key_code": "v",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "hyper"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "f8",
-                                        "modifiers": ["left_option"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "description": "Hyper + U to Scroll to Top",
                                 "from": {
                                     "key_code": "u",
