@@ -2780,7 +2780,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Move to Start of Line with Command+U",
+                                "description": "Scroll to Top",
                                 "from": {
                                     "key_code": "u",
                                     "modifiers": {
@@ -2800,12 +2800,12 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Move to End of Line with Command+O",
+                                "description": "Scorll to Bottom",
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
                                         "mandatory": [
-                                            "left_command"
+                                            "left_shift"
                                         ]
                                     }
                                 },
