@@ -2779,26 +2779,7 @@
                                 ],
                                 "type": "basic"
                             },
-                            {
-                                "description": "Hyper + U to Scroll to Top",
-                                "from": {
-                                    "key_code": "u",
-                                    "modifiers": {
-                                        "mandatory": [
-                                            "hyper"
-                                        ]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "left_arrow",
-                                        "modifiers": [
-                                            "fn"
-                                        ]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+ 
                                                         {
                                                             "description": "",
                                                             "conditions": [
@@ -2846,6 +2827,7 @@
                                 ],
                                 "type": "basic"
                             },
+                            
                             {
                                 "description": "Move by Word Left with Command+H",
                                 "from": {
