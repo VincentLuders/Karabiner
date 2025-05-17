@@ -123,7 +123,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "",
+                                "description": "Grammar",
                                 "from": { "key_code": "w" },
                                 "to": [
                                      {
@@ -2201,7 +2201,7 @@
                                         "optional": ["caps_lock"]
                                     }
                                 },
-                                "to": [{ "shell_command": "open -a 'Visual Studio Code.app'" }],
+                                "to": [{ "shell_command": "open -a 'Windsurf.app'" }],
                                 "type": "basic"
                             },
                             {
