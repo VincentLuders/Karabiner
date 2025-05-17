@@ -2779,41 +2779,47 @@
                                 ],
                                 "type": "basic"
                             },
- 
-                                                        {
-                                                            "description": "",
-                                                            "conditions": [
-                                                                {
-                                                                    "name": "hyper",
-                                                                    "type": "variable_if",
-                                                                    "value": 1
-                                                                }
-                                                            ],
-                                                            "from": {
-                                                                "key_code": "u",
-                                                                "modifiers": {
-                                                                    "optional": [
-                                                                        "any"
-                                                                    ]
-                                                                }
-                                                            },
-                                                            "to": [
-                                                                {
-                                                                    "key_code": "left_arrow",
-                                                                    "modifiers": [
-                                                                        "fn"
-                                                                    ]
-                                                                }
-                                                            ],
-                                                            "type": "basic"
-                                                        },
+                            {
+                                "description": "Hyper + U to Scroll to Top",
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": [
+                                            "fn"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
                             {
                                 "description": "Hyper + O to Scroll to Bottom",
+                                "conditions": [
+                                    {
+                                        "name": "hyper",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "o",
                                     "modifiers": {
-                                        "mandatory": [
-                                            "hyper"
+                                        "optional": [
+                                            "any"
                                         ]
                                     }
                                 },
