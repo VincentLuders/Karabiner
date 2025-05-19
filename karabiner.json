@@ -127,7 +127,7 @@
                                 "from": { "key_code": "w" },
                                 "to": [
                                      {
-                                         "key_code": "f16",
+                                         "key_code": "f17",
                                          "modifiers": ["control"]
                                      }
                             
