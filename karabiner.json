@@ -128,7 +128,7 @@
                                 "to": [
                                      {
                                          "key_code": "f16",
-                                         "modifiers": ["option"]
+                                         "modifiers": ["control"]
                                      }
                             
                             ],
