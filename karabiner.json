@@ -1660,17 +1660,17 @@
                             {
                                 "type": "basic",
                                 "from": {
-                                "key_code": "l",
-                                "modifiers": {
-                                    "mandatory": ["right_command"],
-                                    "optional": ["any"]
-                                }
+                                    "key_code": "l",
+                                    "modifiers": {
+                                        "mandatory": ["right_command"],
+                                        "optional": ["caps_lock"]
+                                    }
                                 },
                                 "to": [
-                                {
-                                    "key_code": "f8",
-                                    "modifiers": ["shift"]
-                                }
+                                    {
+                                        "key_code": "f8",
+                                        "modifiers": ["shift"]
+                                    }
                                 ]
                             },
                             {
