@@ -2406,7 +2406,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Launch Vivaldi with Option+A",
+                                "description": "Launch Arc with Option+A",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": {
