@@ -1292,7 +1292,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Command+F to Command+Tab (App Switcher)",
+                                "description": "Command+F to Command+Tab, then Hide Others",
                                 "from": {
                                     "key_code": "f",
                                     "modifiers": {
@@ -1304,6 +1304,10 @@
                                     {
                                         "key_code": "tab",
                                         "modifiers": ["command"]
+                                    },
+                                    {
+                                        "key_code": "h",
+                                        "modifiers": ["command", "option"]
                                     }
                                 ],
                                 "type": "basic"
