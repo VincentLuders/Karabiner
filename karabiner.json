@@ -2512,7 +2512,7 @@
                                 "from": { "key_code": "j" },
                                 "to": [
                                     { "key_code": "delete_or_backspace" },
-                                    { "shell_command": "sleep 1" },
+                                    { "shell_command": "sleep 0.2" },
                                     {
                                         "key_code": "left_arrow",
                                         "modifiers": ["left_option", "left_shift"]
