@@ -2533,7 +2533,7 @@
                                         "set_variable": {
                                             "name": "space_pressed",
                                             "value": 1
-                                        }
+                                        }  
                                     },
                                     {
                                         "key_code": "spacebar",
@@ -2565,7 +2565,7 @@
                                 "to": [
                                     {
                                         "key_code": "delete_or_backspace",
-                                        "modifiers": ["option"]
+                                        "modifiers": ["command"]
                                     }
                                 ],
                                 "type": "basic"
