@@ -2514,7 +2514,7 @@
                                     { "key_code": "delete_or_backspace" },
                                     {
                                         "key_code": "left_arrow",
-                                        "modifiers": ["left_option", "left_shift"]
+                                        "modifiers": ["option", "shift"]
                                     }
                                 ],
                                 "type": "basic"
