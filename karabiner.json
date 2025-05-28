@@ -179,15 +179,14 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Move line up",
+                                "description": "",
                                 "from": { "key_code": "k" },
                                 "to": [
-                                        {
-                                            "key_code": "5",
-                                            "modifiers": ["control"]
-                                        }
-                            
-                            ],
+                                    {
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["option"]
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
