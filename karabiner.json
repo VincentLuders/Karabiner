@@ -2521,16 +2521,31 @@
                         ]
                     },
                     {
-                        "description": "Disable Spacebar Key Repeat",
+                        "description": "Space and Backspace as Option+Delete",
                         "manipulators": [
                             {
-                                "description": "Spacebar pressed only once",
+                                "description": "Space as Option+Delete (delete next word)",
                                 "from": {
                                     "key_code": "spacebar"
                                 },
                                 "to": [
                                     {
-                                        "key_code": "spacebar",
+                                        "key_code": "delete_forward",
+                                        "modifiers": ["option"],
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Backspace as Option+Delete (delete previous word)",
+                                "from": {
+                                    "key_code": "delete_or_backspace"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"],
                                         "repeat": false
                                     }
                                 ],
