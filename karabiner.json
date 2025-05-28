@@ -1916,21 +1916,25 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Left Command + ] to ǀ",
+                                "description": "Left Command + ] to ǀ (dental click)",
                                 "from": {
                                     "key_code": "close_bracket",
                                     "modifiers": {
-                                        "mandatory": ["left_command"],
-                                        "optional": ["caps_lock"]
+                                        "mandatory": [
+                                            "left_command"
+                                        ],
+                                        "optional": [
+                                            "caps_lock"
+                                        ]
                                     }
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"ǀ\"'"
+                                        "shell_command": "printf 'ǀ' | pbcopy && osascript -e 'tell application \"System Events\" to keystroke \"v\" using command down'"
                                     }
                                 ],
                                 "type": "basic"
-                            },  
+    },
                             {
                                 "description": "Swap Brackets (] to [)",
                                 "from": { "key_code": "close_bracket" },
