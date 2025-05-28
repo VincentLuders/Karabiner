@@ -2511,7 +2511,7 @@
                                 "description": "J deletes previous K and triggers Command-Shift-Left when k_pressed is active",
                                 "from": { "key_code": "j" },
                                 "to": [
-
+                                    { "key_code": "delete_or_backspace" },
                                     {
                                         "key_code": "left_arrow",
                                         "modifiers": ["left_command", "left_shift"]
