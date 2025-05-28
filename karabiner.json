@@ -2530,16 +2530,39 @@
                                 "type": "basic" 
                             },
                             {
-                                "description": "Space+Backspace to delete word (Command+Delete)",
-                                "from": {
-                                    "key_code": "delete_or_backspace",
-                                    "modifiers": { "mandatory": ["fn"] }
-                                },
+                                "description": "Spacebar to vk_consumer_brightness_down for use with next rule",
+                                "from": { "key_code": "spacebar" },
+                                "to": [{ "key_code": "vk_consumer_brightness_down" }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Spacebar+Backspace (double-tap) to Command+Delete (delete word)",
+                                "conditions": [
+                                    {
+                                        "type": "variable_if",
+                                        "name": "space_tap_state",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "delete_or_backspace" },
                                 "to": [{ "key_code": "delete_or_backspace", "modifiers": ["command"] }],
                                 "type": "basic"
                             },
                             {
-                                "description": "Fn+Spacebar+Backspace to delete word (Command+Delete)",
+                                "description": "Set space_tap_state to 1 for the spacebar key",
+                                "from": { "key_code": "spacebar" },
+                                "to": [
+                                    { "set_variable": { "name": "space_tap_state", "value": 1 } },
+                                    { "key_code": "spacebar", "repeat": false }
+                                ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [{ "set_variable": { "name": "space_tap_state", "value": 0 } }],
+                                    "to_if_invoked": [{ "set_variable": { "name": "space_tap_state", "value": 0 } }]
+                                },
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Special key combination for space+backspace",
                                 "from": {
                                     "key_code": "spacebar",
                                     "modifiers": { "mandatory": ["fn"] }
