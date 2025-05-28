@@ -2511,11 +2511,10 @@
                                 "description": "J deletes previous K and triggers Command-Shift-Left when k_pressed is active",
                                 "from": { "key_code": "j" },
                                 "to": [
-                                    { "key_code": "delete_or_backspace" },
-                                    { "shell_command": "sleep 2.2" },
+
                                     {
                                         "key_code": "left_arrow",
-                                        "modifiers": ["left_option", "left_shift"]
+                                        "modifiers": ["left_command", "left_shift"]
                                     }
                                 ],
                                 "type": "basic"
