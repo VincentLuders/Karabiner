@@ -2545,7 +2545,7 @@
                                 "description": "Backspace with J",
                                 "from": { "key_code": "j" },
                                 "to": [{ "key_code": "delete_or_backspace" }],
-                                "conditions": [
+                                "conditions": [ 
                                     {
                                         "name": "k_pressed",
                                         "type": "variable_if",
