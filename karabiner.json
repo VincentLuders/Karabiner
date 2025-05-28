@@ -2521,6 +2521,24 @@
                         ]
                     },
                     {
+                        "description": "Disable Spacebar Key Repeat",
+                        "manipulators": [
+                            {
+                                "description": "Spacebar pressed only once",
+                                "from": {
+                                    "key_code": "spacebar"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Arrows Highlight and Delete and Backspace",
                         "manipulators": [
                             {
