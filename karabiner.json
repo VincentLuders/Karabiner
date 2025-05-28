@@ -179,6 +179,43 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Move line up",
+                                "from": { "key_code": "k" },
+                                "to": [
+                                        {
+                                            "key_code": "5",
+                                            "modifiers": ["control"]
+                                        }
+                            
+                            ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Move line down",
+                                "from": { "key_code": "i" },
+                                "to": [
+                                        {
+                                            "key_code": "6",
+                                            "modifiers": ["control"]
+                                        }
+                            ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "new note obsidian",
                                 "from": { "key_code": "n" },
                                 "to": [
@@ -199,7 +236,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "",
+                                "description": "Rectangle Resize",
                                 "from": { "key_code": "g" },
                                 "to": [
                                         {
@@ -218,7 +255,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "",
+                                "description": "Rectange Other",
                                 "from": { "key_code": "v" },
                                 "to": [
                                         {
