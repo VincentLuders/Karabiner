@@ -1916,7 +1916,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Left Command + ] to |",
+                                "description": "Left Command + ] to ǀ (Vertical Bar)",
                                 "from": {
                                     "key_code": "close_bracket",
                                     "modifiers": {
@@ -1926,8 +1926,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "backslash",
-                                        "modifiers": ["shift"]
+                                        "shell_command": "osascript -e 'tell application \"System Events\" to keystroke \"ǀ\"'"
                                     }
                                 ],
                                 "type": "basic"
