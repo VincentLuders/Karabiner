@@ -1916,7 +1916,7 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Left Command + ] to ǀ (Vertical Bar)",
+                                "description": "Left Command + ] to ǀ",
                                 "from": {
                                     "key_code": "close_bracket",
                                     "modifiers": {
@@ -1930,7 +1930,7 @@
                                     }
                                 ],
                                 "type": "basic"
-                            },
+                            },  
                             {
                                 "description": "Swap Brackets (] to [)",
                                 "from": { "key_code": "close_bracket" },
