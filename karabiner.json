@@ -2514,12 +2514,13 @@
                                     { "key_code": "delete_or_backspace" },
                                     {
                                         "key_code": "left_arrow",
-                                        "modifiers": ["left_command", "left_shift"]
+                                        "modifiers": ["option", "shift"]
                                     }
                                 ],
                                 "type": "basic"
                             }
                         ]
+                        
                     },
                     {
                         "description": "Arrows Highlight and Delete and Backspace",
