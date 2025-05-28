@@ -2521,49 +2521,30 @@
                         ]
                     },
                     {
-                        "description": "Spacebar Combinations",
+                        "description": "Spacebar and Backspace Combinations",
                         "manipulators": [
                             {
-                                "description": "Space pressed sets variable",
+                                "description": "Disable spacebar repeat",
                                 "from": { "key_code": "spacebar" },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "space_pressed",
-                                            "value": 1
-                                        }
-                                    },
-                                    {
-                                        "key_code": "spacebar",
-                                        "repeat": false
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "space_pressed",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
+                                "to": [{ "key_code": "spacebar", "repeat": false }],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "space_pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Space+Delete to delete word backward (Command+Delete)",
-                                "from": { "key_code": "delete_or_backspace" },
-                                "to": [
-                                    {
-                                        "key_code": "delete_or_backspace",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
+                                "description": "Space+Backspace to delete word (Command+Delete)",
+                                "from": {
+                                    "key_code": "delete_or_backspace",
+                                    "modifiers": { "mandatory": ["fn"] }
+                                },
+                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["command"] }],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Fn+Spacebar+Backspace to delete word (Command+Delete)",
+                                "from": {
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["fn"] }
+                                },
+                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["command"] }],
                                 "type": "basic"
                             }
                         ]
