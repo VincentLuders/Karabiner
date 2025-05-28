@@ -2476,12 +2476,64 @@
                         ]
                     },
                     {
+                        "description": "K+J Combination",
+                        "manipulators": [
+                            {
+                                "description": "K pressed sets variable",
+                                "from": { "key_code": "k" },
+                                "to": [
+                                    {
+                                        "set_variable": {
+                                            "name": "k_pressed",
+                                            "value": 1
+                                        }
+                                    },
+                                    { "key_code": "k" }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "k_pressed",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "k_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "J triggers Command-Shift-U when k_pressed is active",
+                                "from": { "key_code": "j" },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["left_command", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
                         "description": "Arrows Highlight and Delete and Backspace",
                         "manipulators": [
                             {
                                 "description": "Backspace with J",
                                 "from": { "key_code": "j" },
                                 "to": [{ "key_code": "delete_or_backspace" }],
+                                "conditions": [
+                                    {
+                                        "name": "k_pressed",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -2672,6 +2724,13 @@
                                         "modifiers": ["left_command"]
                                     }
                                 ],
+                                "conditions": [
+                                    {
+                                        "name": "k_pressed",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -2714,6 +2773,13 @@
                                         "modifiers": ["left_command"]
                                     }
                                 ],
+                                "conditions": [
+                                    {
+                                        "name": "k_pressed",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -2726,6 +2792,13 @@
                                     {
                                         "key_code": "delete_or_backspace",
                                         "modifiers": ["left_option"]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "name": "k_pressed",
+                                        "type": "variable_if",
+                                        "value": 0
                                     }
                                 ],
                                 "type": "basic"
@@ -2796,6 +2869,13 @@
                                         "modifiers": ["left_shift"]
                                     }
                                 ],
+                                "conditions": [
+                                    {
+                                        "name": "k_pressed",
+                                        "type": "variable_if",
+                                        "value": 0
+                                    }
+                                ],
                                 "type": "basic"
                             },
                             {
@@ -2808,6 +2888,13 @@
                                     {
                                         "key_code": "return_or_enter",
                                         "modifiers": ["left_command"]
+                                    }
+                                ],
+                                "conditions": [
+                                    {
+                                        "name": "k_pressed",
+                                        "type": "variable_if",
+                                        "value": 0
                                     }
                                 ],
                                 "type": "basic"
