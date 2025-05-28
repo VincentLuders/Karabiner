@@ -2524,25 +2524,9 @@
                         "description": "Spacebar Combinations",
                         "manipulators": [
                             {
-                                "description": "Spacebar pressed sets variable",
+                                "description": "Spacebar pressed only once (prevent key repeat)",
                                 "from": { "key_code": "spacebar" },
                                 "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "space_pressed",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "space_pressed",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "to_if_alone": [
                                     {
                                         "key_code": "spacebar",
                                         "repeat": false
@@ -2551,19 +2535,24 @@
                                 "type": "basic"
                             },
                             {
-                                "conditions": [
-                                    {
-                                        "name": "space_pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
                                 "description": "Space+Delete to delete word backward (Option+Delete)",
-                                "from": { "key_code": "delete_or_backspace" },
+                                "from": {
+                                    "simultaneous": [
+                                        { "key_code": "spacebar" },
+                                        { "key_code": "delete_or_backspace" }
+                                    ],
+                                    "simultaneous_options": {
+                                        "detect_key_down_uninterruptedly": true,
+                                        "key_down_order": "insensitive",
+                                        "key_up_order": "insensitive",
+                                        "key_up_when": "any",
+                                        "to_after_key_up": []
+                                    }
+                                },
                                 "to": [
                                     {
                                         "key_code": "delete_or_backspace",
-                                        "modifiers": ["option"]
+                                        "modifiers": ["command"]
                                     }
                                 ],
                                 "type": "basic"
