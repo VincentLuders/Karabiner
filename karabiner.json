@@ -2521,33 +2521,12 @@
                         ]
                     },
                     {
-                        "description": "Disable Spacebar Key Repeat",
+                        "description": "Space as Modifier Key with Backspace after 500ms",
                         "manipulators": [
                             {
-                                "description": "Prevent spacebar from repeating when held",
+                                "description": "Spacebar: outputs space immediately, deletes it after 500ms, then acts as modifier",
                                 "from": {
                                     "key_code": "spacebar"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "repeat": false
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Space as Modifier Key",
-                        "manipulators": [
-                            {
-                                "description": "Set space_pressed variable when space is pressed",
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": {
-                                        "optional": ["any"]
-                                    }
                                 },
                                 "to": [
                                     {
@@ -2555,21 +2534,43 @@
                                             "name": "space_pressed",
                                             "value": 1
                                         }
-                                    }
-                                ],
-                                "to_if_alone": [
+                                    },
                                     {
-                                        "key_code": "spacebar"
+                                        "key_code": "spacebar",
+                                        "repeat": false
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "space_modifier_active",
+                                                "value": 1
+                                            }
+                                        },
+                                        {
+                                            "key_code": "delete_or_backspace"
+                                        }
+                                    ],
+                                    "to_if_canceled": []
+                                },
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
                                             "name": "space_pressed",
                                             "value": 0
                                         }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "space_modifier_active",
+                                            "value": 0
+                                        }
                                     }
                                 ],
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 500
+                                },
                                 "type": "basic"
                             },
                             {
