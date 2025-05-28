@@ -3170,6 +3170,7 @@
                                 ],
                                 "type": "basic"
                             },
+                            
                             {
                                 "description": "Delete Line Above with Option+J",
                                 "from": {
@@ -3218,7 +3219,7 @@
                     }
                 ]
             },
-            "devices": [
+        "devices": [
                 {
                     "identifiers": {
                         "is_pointing_device": true,
