@@ -2524,7 +2524,7 @@
                         "description": "Advanced Space Functionality: Key Repeat Prevention, Space+J, and Space as Modifier",
                         "manipulators": [
                             {
-                                "description": "Spacebar pressed: initially outputs space, becomes modifier after 500ms",
+                                "description": "Spacebar outputs immediately and becomes modifier after 500ms",
                                 "from": {
                                     "key_code": "spacebar"
                                 },
