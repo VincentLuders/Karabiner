@@ -2521,32 +2521,49 @@
                         ]
                     },
                     {
-                        "description": "Space and Backspace as Option+Delete",
+                        "description": "Spacebar Combinations",
                         "manipulators": [
                             {
-                                "description": "Space as Option+Delete (delete next word)",
-                                "from": {
-                                    "key_code": "spacebar"
-                                },
+                                "description": "Spacebar pressed sets variable",
+                                "from": { "key_code": "spacebar" },
                                 "to": [
                                     {
-                                        "key_code": "delete_forward",
-                                        "modifiers": ["option"],
+                                        "set_variable": {
+                                            "name": "space_pressed",
+                                            "value": 1
+                                        }
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "space_pressed",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar",
                                         "repeat": false
                                     }
                                 ],
                                 "type": "basic"
                             },
                             {
-                                "description": "Backspace as Option+Delete (delete previous word)",
-                                "from": {
-                                    "key_code": "delete_or_backspace"
-                                },
+                                "conditions": [
+                                    {
+                                        "name": "space_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Space+Delete to delete word backward (Option+Delete)",
+                                "from": { "key_code": "delete_or_backspace" },
                                 "to": [
                                     {
                                         "key_code": "delete_or_backspace",
-                                        "modifiers": ["option"],
-                                        "repeat": false
+                                        "modifiers": ["option"]
                                     }
                                 ],
                                 "type": "basic"
