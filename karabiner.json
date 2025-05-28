@@ -3218,28 +3218,6 @@
                     }
                 ]
             },
-            {
-                "description": "Simultaneous J+K triggers Command+Shift+Left Arrow",
-                "manipulators": [
-                    {
-                        "type": "basic",
-                        "from": {
-                            "simultaneous": [
-                                { "key_code": "j" },
-                                { "key_code": "k" }
-                            ],
-                            "modifiers": { "optional": ["any"] }
-                        },
-                        "to": [
-                            {
-                                "key_code": "left_arrow",
-                                "modifiers": ["left_command", "left_shift"]
-                            }
-                        ],
-                        "description": "Pressing J and K together triggers Command+Shift+Left Arrow"
-                    }
-                ]
-            },
             "devices": [
                 {
                     "identifiers": {
