@@ -2527,7 +2527,7 @@
                                 "description": "Disable spacebar repeat",
                                 "from": { "key_code": "spacebar" },
                                 "to": [{ "key_code": "spacebar", "repeat": false }],
-                                "type": "basic"
+                                "type": "basic" 
                             },
                             {
                                 "description": "Space+Backspace to delete word (Command+Delete)",
