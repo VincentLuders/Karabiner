@@ -2524,50 +2524,27 @@
                         "description": "Spacebar and Backspace Combinations",
                         "manipulators": [
                             {
+                                "description": "Spacebar and Backspace to Command+Backspace",
+                                "from": {
+                                    "simultaneous": [
+                                        { "key_code": "spacebar" },
+                                        { "key_code": "delete_or_backspace" }
+                                    ],
+                                    "simultaneous_options": {
+                                        "detect_key_down_uninterruptedly": false,
+                                        "key_down_order": "insensitive",
+                                        "key_up_order": "insensitive",
+                                        "key_up_when": "any",
+                                        "to_after_key_up": []
+                                    }
+                                },
+                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["command"] }],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Disable spacebar repeat",
                                 "from": { "key_code": "spacebar" },
                                 "to": [{ "key_code": "spacebar", "repeat": false }],
-                                "type": "basic" 
-                            },
-                            {
-                                "description": "Spacebar to vk_consumer_brightness_down for use with next rule",
-                                "from": { "key_code": "spacebar" },
-                                "to": [{ "key_code": "vk_consumer_brightness_down" }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Spacebar+Backspace (double-tap) to Command+Delete (delete word)",
-                                "conditions": [
-                                    {
-                                        "type": "variable_if",
-                                        "name": "space_tap_state",
-                                        "value": 1
-                                    }
-                                ],
-                                "from": { "key_code": "delete_or_backspace" },
-                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["command"] }],
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Set space_tap_state to 1 for the spacebar key",
-                                "from": { "key_code": "spacebar" },
-                                "to": [
-                                    { "set_variable": { "name": "space_tap_state", "value": 1 } },
-                                    { "key_code": "spacebar", "repeat": false }
-                                ],
-                                "to_delayed_action": {
-                                    "to_if_canceled": [{ "set_variable": { "name": "space_tap_state", "value": 0 } }],
-                                    "to_if_invoked": [{ "set_variable": { "name": "space_tap_state", "value": 0 } }]
-                                },
-                                "type": "basic"
-                            },
-                            {
-                                "description": "Special key combination for space+backspace",
-                                "from": {
-                                    "key_code": "spacebar",
-                                    "modifiers": { "mandatory": ["fn"] }
-                                },
-                                "to": [{ "key_code": "delete_or_backspace", "modifiers": ["command"] }],
                                 "type": "basic"
                             }
                         ]
