@@ -2513,8 +2513,8 @@
                                 "to": [
                                     { "key_code": "delete_or_backspace" },
                                     {
-                                        "key_code": "left_arrow",
-                                        "modifiers": ["left_command", "left_shift"]
+                                        "key_code": "up_arrow",
+                                        "modifiers": ["left_option", "left_shift"]
                                     }
                                 ],
                                 "type": "basic"
