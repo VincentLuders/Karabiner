@@ -2552,14 +2552,7 @@
                                             "key_code": "delete_or_backspace"
                                         }
                                     ],
-                                    "to_if_canceled": [
-                                        {
-                                            "set_variable": {
-                                                "name": "space_modifier",
-                                                "value": 0
-                                            }
-                                        }
-                                    ]
+                                    "to_if_canceled": []
                                 },
                                 "to_after_key_up": [
                                     {
@@ -2576,7 +2569,7 @@
                                     }
                                 ],
                                 "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 300
+                                    "basic.to_delayed_action_delay_milliseconds": 500
                                 },
                                 "type": "basic"
                             },
