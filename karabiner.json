@@ -2521,33 +2521,63 @@
                         ]
                     },
                     {
-                        "description": "Disable Spacebar Key Repeat and Space+J Combinations",
+                        "description": "Advanced Space Functionality: Key Repeat Prevention, Space+J, and Space as Modifier",
                         "manipulators": [
                             {
-                                "description": "Spacebar pressed sets variable and outputs space",
+                                "description": "Spacebar pressed: initially outputs space, becomes modifier after 500ms",
                                 "from": {
                                     "key_code": "spacebar"
                                 },
-                                "to": [ 
+                                "to": [
                                     {
                                         "set_variable": {
                                             "name": "space_pressed",
                                             "value": 1
-                                        }  
+                                        }
                                     },
                                     {
                                         "key_code": "spacebar",
                                         "repeat": false
                                     }
                                 ],
+                                "to_delayed_action": {
+                                    "to_if_invoked": [
+                                        {
+                                            "set_variable": {
+                                                "name": "space_modifier",
+                                                "value": 1
+                                            }
+                                        },
+                                        {
+                                            "key_code": "delete_or_backspace"
+                                        }
+                                    ],
+                                    "to_if_canceled": [
+                                        {
+                                            "set_variable": {
+                                                "name": "space_modifier",
+                                                "value": 0
+                                            }
+                                        }
+                                    ]
+                                },
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
                                             "name": "space_pressed",
                                             "value": 0
                                         }
+                                    },
+                                    {
+                                        "set_variable": {
+                                            "name": "space_modifier",
+                                            "value": 0
+                                        }
                                     }
                                 ],
+                                "parameters": {
+                                    "basic.to_delayed_action_delay_milliseconds": 300
+                                },
                                 "type": "basic"
                             },
                             {
@@ -2556,15 +2586,40 @@
                                         "name": "space_pressed",
                                         "type": "variable_if",
                                         "value": 1
+                                    },
+                                    {
+                                        "name": "space_modifier",
+                                        "type": "variable_if",
+                                        "value": 0
                                     }
                                 ],
-                                "description": "J deletes word backward when space is pressed (Option+Delete)", 
+                                "description": "J deletes word backward when space is pressed (Command+Delete)", 
                                 "from": {
                                     "key_code": "j"
                                 },
                                 "to": [
                                     {
                                         "key_code": "delete_or_backspace",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "space_modifier",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Space+A acts as Command+A when in modifier mode",
+                                "from": {
+                                    "key_code": "a"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "a",
                                         "modifiers": ["command"]
                                     }
                                 ],
