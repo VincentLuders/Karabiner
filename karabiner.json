@@ -2521,17 +2521,51 @@
                         ]
                     },
                     {
-                        "description": "Disable Spacebar Key Repeat",
+                        "description": "Disable Spacebar Key Repeat and Space+J Combinations",
                         "manipulators": [
                             {
-                                "description": "Spacebar pressed only once",
+                                "description": "Spacebar pressed sets variable and outputs space",
                                 "from": {
                                     "key_code": "spacebar"
                                 },
                                 "to": [
                                     {
+                                        "set_variable": {
+                                            "name": "space_pressed",
+                                            "value": 1
+                                        }
+                                    },
+                                    {
                                         "key_code": "spacebar",
                                         "repeat": false
+                                    }
+                                ],
+                                "to_after_key_up": [
+                                    {
+                                        "set_variable": {
+                                            "name": "space_pressed",
+                                            "value": 0
+                                        }
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "space_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "J deletes word backward when space is pressed (Option+Delete)",
+                                "from": {
+                                    "key_code": "j"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "delete_or_backspace",
+                                        "modifiers": ["option"]
                                     }
                                 ],
                                 "type": "basic"
