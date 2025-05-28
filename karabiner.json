@@ -3170,7 +3170,6 @@
                                 ],
                                 "type": "basic"
                             },
-                            
                             {
                                 "description": "Delete Line Above with Option+J",
                                 "from": {
@@ -3202,6 +3201,41 @@
                                 "type": "basic"
                             },
                             {
+                                "description": "J pressed sets variable",
+                                "from": { "key_code": "j" },
+                                "to": [
+                                    { "set_variable": { "name": "j_pressed", "value": 1 } },
+                                    { "key_code": "j" }
+                                ],
+                                "to_delayed_action": {
+                                    "to_if_canceled": [
+                                        { "set_variable": { "name": "j_pressed", "value": 0 } }
+                                    ],
+                                    "to_if_invoked": [
+                                        { "set_variable": { "name": "j_pressed", "value": 0 } }
+                                    ]
+                                },
+                                "type": "basic"
+                            },
+                            {
+                                "description": "K pressed with J triggers Command+Shift+Left",
+                                "conditions": [
+                                    {
+                                        "name": "j_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "from": { "key_code": "k" },
+                                "to": [
+                                    {
+                                        "key_code": "left_arrow",
+                                        "modifiers": ["left_command", "left_shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Move by Word Right with Command+L",
                                 "from": {
                                     "key_code": "l",
@@ -3219,7 +3253,7 @@
                     }
                 ]
             },
-        "devices": [
+            "devices": [
                 {
                     "identifiers": {
                         "is_pointing_device": true,
