@@ -2075,7 +2075,7 @@
                                     "key_code": "a",
                                     "modifiers": { "mandatory": ["left_shift"] }
                                 },
-                                "to": [{ "shell_command": "osascript ~/scripts/menu_bar_search.scpt" }],
+                                "to": [{ "key_code": "quote", "modifiers": ["command"] }],
                                 "type": "basic"
                             }
                         ]
