@@ -2067,15 +2067,20 @@
                         ]
                     },
                     {
-                        "description": "Caps Lock triggers menu bar search",
+                        "description": "Menu Bar Help Search",
                         "manipulators": [
                             {
-                                "description": "Launch Menu Bar Search with Caps Lock+A",
+                                "description": "Launch Menu Bar Help Search with Shift+A",
                                 "from": {
                                     "key_code": "a",
                                     "modifiers": { "mandatory": ["left_shift"] }
                                 },
-                                "to": [{ "key_code": "quote", "modifiers": ["question_mark"] }],
+                                "to": [
+                                    {
+                                        "key_code": "slash",
+                                        "modifiers": ["command", "shift"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
