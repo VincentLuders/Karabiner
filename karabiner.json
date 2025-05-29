@@ -2070,12 +2070,17 @@
                         "description": "Caps Lock triggers menu bar search",
                         "manipulators": [
                             {
-                                "description": "Launch Menu Bar Search with Caps Lock+A",
+                                "description": "Launch Menu Bar Search with Command+Space",
                                 "from": {
-                                    "key_code": "a",
-                                    "modifiers": { "mandatory": ["caps_lock"] }
+                                    "key_code": "spacebar",
+                                    "modifiers": { "mandatory": ["command"] }
                                 },
-                                "to": [{ "shell_command": "osascript ~/scripts/menu_bar_search.scpt" }],
+                                "to": [
+                                    {
+                                        "key_code": "quote",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
                                 "type": "basic"
                             }
                         ]
@@ -2521,10 +2526,28 @@
                         ]
                     },
                     {
-                        "description": "Space as Modifier Key with Backspace after 500ms",
+                        "description": "Simple Disable Space Key Repeat",
                         "manipulators": [
                             {
-                                "description": "Spacebar: outputs space immediately, deletes it after 500ms, then acts as modifier",
+                                "description": "Space key prevents repeat",
+                                "from": {
+                                    "key_code": "spacebar"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "spacebar",
+                                        "repeat": false
+                                    }
+                                ],
+                                "type": "basic"
+                            }
+                        ]
+                    },
+                    {
+                        "description": "Space as Modifier Key only",
+                        "manipulators": [
+                            {
+                                "description": "Spacebar as modifier when held",
                                 "from": {
                                     "key_code": "spacebar"
                                 },
@@ -2534,43 +2557,21 @@
                                             "name": "space_pressed",
                                             "value": 1
                                         }
-                                    },
-                                    {
-                                        "key_code": "spacebar",
-                                        "repeat": false
                                     }
                                 ],
-                                "to_delayed_action": {
-                                    "to_if_invoked": [
-                                        {
-                                            "set_variable": {
-                                                "name": "space_modifier_active",
-                                                "value": 1
-                                            }
-                                        },
-                                        {
-                                            "key_code": "delete_or_backspace"
-                                        }
-                                    ],
-                                    "to_if_canceled": []
-                                },
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "spacebar"
+                                    }
+                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
                                             "name": "space_pressed",
                                             "value": 0
                                         }
-                                    },
-                                    {
-                                        "set_variable": {
-                                            "name": "space_modifier_active",
-                                            "value": 0
-                                        }
                                     }
                                 ],
-                                "parameters": {
-                                    "basic.to_delayed_action_delay_milliseconds": 500
-                                },
                                 "type": "basic"
                             },
                             {
