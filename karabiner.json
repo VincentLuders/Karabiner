@@ -2076,11 +2076,10 @@
                                     "modifiers": { "mandatory": ["caps_lock"] }
                                 },
                                 "to": [
-                                    {
+
+                                                                        {
                                         "key_code": "quote",
-                                        "modifiers": [
-                                            "command"
-                                        ]
+                                        "modifiers": ["command"]
                                     }
                                 ],
                                 "type": "basic"
@@ -2495,7 +2494,7 @@
                                         }
                                     },
                                     { "key_code": "k" }
-                                ],     
+                                ],
                                 "to_after_key_up": [
                                     {
                                         "set_variable": {
@@ -2528,104 +2527,13 @@
                         ]
                     },
                     {
-                        "description": "Simple Disable Space Key Repeat",
-                        "manipulators": [
-                            {
-                                "description": "Space key prevents repeat",
-                                "from": {
-                                    "key_code": "spacebar"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "spacebar",
-                                        "repeat": false
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
-                        "description": "Space as Modifier Key only",
-                        "manipulators": [
-                            {
-                                "description": "Spacebar as modifier when held",
-                                "from": {
-                                    "key_code": "spacebar"
-                                },
-                                "to": [
-                                    {
-                                        "set_variable": {
-                                            "name": "space_pressed",
-                                            "value": 1
-                                        }
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "spacebar"
-                                    }
-                                ],
-                                "to_after_key_up": [
-                                    {
-                                        "set_variable": {
-                                            "name": "space_pressed",
-                                            "value": 0
-                                        }
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "space_pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Space+A acts as Command+A when space is held",
-                                "from": {
-                                    "key_code": "a"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "a",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "space_pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "Space+J triggers Command+Delete",
-                                "from": {
-                                    "key_code": "j"
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "delete_or_backspace",
-                                        "modifiers": ["command"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "Arrows Highlight and Delete and Backspace",
                         "manipulators": [
                             {
                                 "description": "Backspace with J",
                                 "from": { "key_code": "j" },
                                 "to": [{ "key_code": "delete_or_backspace" }],
-                                "conditions": [ 
+                                "conditions": [
                                     {
                                         "name": "k_pressed",
                                         "type": "variable_if",
