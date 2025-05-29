@@ -2286,7 +2286,7 @@
                                         "optional": ["caps_lock"]
                                     }
                                 },
-                                "to": [{ "shell_command": "open -a 'Windsurf.app' " to keystroke \"h\" using {command down, option down}'" }],
+                                "to": [{ "shell_command": "open -a 'Windsurf.app'" }],
                                 "type": "basic"
                             },
                             {
