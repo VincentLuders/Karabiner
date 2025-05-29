@@ -2286,7 +2286,7 @@
                                         "optional": ["caps_lock"]
                                     }
                                 },
-                                "to": [{ "shell_command": "open -a 'Windsurf.app' && osascript -e 'tell application \"System Events\" to tell process \"Windsurf\" to set frontmost to true' -e 'tell application \"System Events\" to keystroke \"h\" using {command down, option down}'" }],
+                                "to": [{ "shell_command": "open -a 'Windsurf.app' " to keystroke \"h\" using {command down, option down}'" }],
                                 "type": "basic"
                             },
                             {
@@ -2474,7 +2474,7 @@
                                         "optional": ["caps_lock"]
                                     }
                                 },
-                                "to": [{ "shell_command": "open -a 'Arc.app' " }],
+                                "to": [{ "shell_command": "open -a 'Arc.app' }'" }],
                                 "type": "basic"
                             }
                         ]
