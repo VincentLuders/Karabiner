@@ -179,12 +179,12 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "",
+                                "description": "Move line down",
                                 "from": { "key_code": "k" },
                                 "to": [
                                     {
-                                        "key_code": "up_arrow",
-                                        "modifiers": ["option"]
+                                        "key_code": "5",
+                                        "modifiers": ["control"]
                                     }
                                 ],
                                 "type": "basic"
