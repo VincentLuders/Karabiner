@@ -197,7 +197,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Move line down",
+                                "description": "Move line up",
                                 "from": { "key_code": "i" },
                                 "to": [
                                         {
