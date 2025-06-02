@@ -217,7 +217,7 @@
                                 ],
                                 "description": "Select to Bracket",
                                 "from": {
-                                    "key_code": "l"
+                                    "key_code": "c"
                                 },
                                 "to": [
                                     {
