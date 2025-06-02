@@ -215,6 +215,28 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Move line up",
+                                "from": {
+                                    "key_code": "l"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "7",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "new note obsidian",
                                 "from": { "key_code": "n" },
                                 "to": [
