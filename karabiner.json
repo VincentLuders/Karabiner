@@ -1378,6 +1378,31 @@
                                 "to": [{ "key_code": "tab" }],
                                 "type": "basic"
                             },
+                                                        {
+    "conditions": [
+        {
+            "bundle_identifiers": [
+                "^com\\.vivaldi\\.Vivaldi$",
+                "^company\\.thebrowser\\.Browser$"
+            ],
+            "type": "frontmost_application_if"
+        }
+    ],
+    "description": "Remap Backtick/Tilde to Tab in Vivaldi and Arc",
+    "from": {
+        "key_code": "grave_accent_and_tilde",
+        "modifiers": {
+            "mandatory": ["shift"]
+        }
+    },
+    "to": [
+        {
+            "key_code": "tab",
+            "modifiers": ["shift"]
+        }
+    ],
+    "type": "basic"
+},
                             {
                                 "conditions": [
                                     {
