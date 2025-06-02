@@ -215,7 +215,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Move line up",
+                                "description": "Select to Bracket",
                                 "from": {
                                     "key_code": "l"
                                 },
