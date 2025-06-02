@@ -237,6 +237,25 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Enter",
+                                "from": {
+                                    "key_code": "h"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "return_or_enter"
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "new note obsidian",
                                 "from": { "key_code": "n" },
                                 "to": [
