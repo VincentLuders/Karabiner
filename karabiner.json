@@ -2332,7 +2332,7 @@
                         "description": "Application Launchers",
                         "manipulators": [
                             {
-                                "description": "Launch Notion with Option+D",
+                                "description": "Launch Obsidian with Option+D",
                                 "from": {
                                     "key_code": "d",
                                     "modifiers": {
@@ -2340,7 +2340,7 @@
                                         "optional": ["caps_lock"]
                                     }
                                 },
-                                "to": [{ "shell_command": "open -a 'Notion.app'" }],
+                                "to": [{ "shell_command": "open -a 'Obsidian.app'" }],
                                 "type": "basic"
                             },
                             {
