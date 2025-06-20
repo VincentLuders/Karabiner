@@ -1536,6 +1536,61 @@
                                 "type": "basic"
                             },
                             {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.vivaldi\\.Vivaldi$",
+                                            "^company\\.thebrowser\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Remap § to Tab in Vivaldi and Arc",
+                                "from": { "key_code": "non_us_backslash" },
+                                "to": [{ "key_code": "tab" }],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.vivaldi\\.Vivaldi$",
+                                            "^company\\.thebrowser\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
+                                "description": "Remap ± to Shift+Tab in Vivaldi and Arc",
+                                "from": {
+                                    "key_code": "non_us_backslash",
+                                    "modifiers": {
+                                        "mandatory": ["shift"]
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "tab",
+                                        "modifiers": ["shift"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.vivaldi\\.Vivaldi$",
+                                            "^company\\.thebrowser\\.Browser$"
+                                        ],
+                                        "type": "frontmost_application_unless"
+                                    }
+                                ],
+                                "description": "Remap § to F2 (non-Vivaldi and non-Arc)",
+                                "from": { "key_code": "non_us_backslash" },
+                                "to": [{ "key_code": "f2" }],
+                                "type": "basic"
+                            },
+                            {
                                 "description": "Grammar Strong with Caps Lock",
                                 "from": {
                                     "key_code": "f",
@@ -2311,6 +2366,20 @@
                                 "description": "Make use of grave accent",
                                 "from": {
                                     "key_code": "grave_accent_and_tilde",
+                                    "modifiers": { "mandatory": ["command"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "f3",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Make use of § key with Command",
+                                "from": {
+                                    "key_code": "non_us_backslash",
                                     "modifiers": { "mandatory": ["command"] }
                                 },
                                 "to": [
