@@ -1653,29 +1653,6 @@
                                 }
                               ],
                               "type": "basic"
-                            },
-                            {
-                              "description": "Left Option+U → except in Notion",
-                              "from": {
-                                "key_code": "u",
-                                "modifiers": {
-                                  "mandatory": ["left_option"],
-                                  "optional": ["caps_lock"]
-                                }
-                              },
-                              "to": [
-                                {
-                                  "key_code": "u",
-                                  "modifiers": ["control"]
-                                }
-                              ],
-                              "conditions": [
-                                {
-                                  "type": "frontmost_application_unless",
-                                  "bundle_identifiers": ["^notion\\."]
-                                }
-                              ],
-                              "type": "basic"
                             },                            
                             {
                                 "conditions": [
@@ -3400,6 +3377,20 @@
                                     {
                                         "key_code": "right_arrow",
                                         "modifiers": ["option"]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "description": "Left Option+U to Control+K",
+                                "from": {
+                                    "key_code": "u",
+                                    "modifiers": { "mandatory": ["left_option"] }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "k",
+                                        "modifiers": ["control"]
                                     }
                                 ],
                                 "type": "basic"
