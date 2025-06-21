@@ -958,7 +958,7 @@
                                 ],
                                 "to_if_alone": [
                                     {
-                                        "key_code": "f16"
+                                        "key_code": "tab"   
                                     }
                                 ],
                                 "to_after_key_up": [
@@ -2448,7 +2448,7 @@
                                 "description": "Launch VS Code with Option+F (hide others)",
                                 "from": {
                                     "key_code": "f",
-                                    "modifiers": {
+                                    "modifiers": { 
                                         "mandatory": ["option"],
                                         "optional": ["caps_lock"]
                                     }
