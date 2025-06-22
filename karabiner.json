@@ -229,7 +229,7 @@
                                         "value": 1
                                     }
                                 ],
-                                "description": "Control 6",
+                                "description": "Q+O",
                                 "from": {
                                     "key_code": "o"
                                 },
@@ -941,6 +941,32 @@
                     {
                         "description": "Complete Caps Lock Configuration",
                         "manipulators": [
+                            {
+                                "description": "Command + Caps Lock (alone) triggers F16",
+                                "from": {
+                                    "key_code": "caps_lock",
+                                    "modifiers": { 
+                                        "mandatory": ["command"],
+                                        "optional": []
+                                    }
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "left_shift",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "to_if_alone": [
+                                    {
+                                        "key_code": "f16",
+                                        "modifiers": ["command"]
+                                    }
+                                ],
+                                "parameters": {
+                                    "basic.to_if_alone_timeout_milliseconds": 200
+                                },
+                                "type": "basic"
+                            },
                             {
                                 "description": "Caps Lock sets variable and triggers F16 when pressed alone (no mouse buttons)",
                                 "from": {
