@@ -252,6 +252,51 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Q+Z",
+                                "from": {
+                                    "key_code": "z"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "z",
+                                        "modifiers": [
+                                            "shift",
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
+                                "description": "Q+X",
+                                "from": {
+                                    "key_code": "x"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "z",
+                                        "modifiers": [
+                                            "command"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "Move line up",
                                 "from": { "key_code": "i" },
                                 "to": [
@@ -342,7 +387,7 @@
                             ],
                                 "type": "basic"
                             },
-                                                        {
+                            {   
                                 "conditions": [
                                     {
                                         "name": "q_pressed",
@@ -866,24 +911,8 @@
                                     { "key_code": "spacebar" }
                                 ],
                                 "type": "basic"
-                            },
-                            {
-                               "description": "Undo",
-                               "from": {
-                                   "key_code": "h",
-                                   "modifiers": {
-                                       "mandatory": ["right_command"],
-                                       "optional": ["caps_lock"]
-                                   }
-                               },
-                               "to": [
-                                   {
-                                       "key_code": "z",
-                                       "modifiers": ["command", "shift"]
-                                   }
-                               ],
-                               "type": "basic" 
                             }
+                            
                         ]
                     },
                     {
@@ -1534,15 +1563,14 @@
                                         "type": "frontmost_application_if"
                                     }
                                 ],
-                                "description": "Command+Shift+C to Command+Option+C in Finder and dialogs",
+                                "description": "Command+Shift+C to copy path without quotes in Finder",
                                 "from": {
                                     "key_code": "c",
                                     "modifiers": { "mandatory": ["command", "shift"] }
                                 },
                                 "to": [
                                     {
-                                        "key_code": "c",
-                                        "modifiers": ["command", "option"]
+                                        "shell_command": "/usr/bin/osascript -e 'tell application \"Finder\" to set the clipboard to POSIX path of (selection as alias)'"
                                     }
                                 ],
                                 "type": "basic"
