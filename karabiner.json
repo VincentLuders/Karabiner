@@ -166,25 +166,7 @@
                             ],
                                 "type": "basic"
                             },
-                            {
-                                "conditions": [
-                                    {
-                                        "name": "q_pressed",
-                                        "type": "variable_if",
-                                        "value": 1
-                                    }
-                                ],
-                                "description": "",
-                                "from": {
-                                    "key_code": "d"
-                                },
-                                "to": [
-                                    {
-                                        "shell_command": "open -a 'Ghostty.app'"
-                                    }
-                                ],
-                                "type": "basic"
-                            },
+                            
                             {
                                 "conditions": [
                                     {
@@ -337,6 +319,28 @@
                                         "value": 1
                                     }
                                 ],
+                                "description": "Smart Select",
+                                "from": {
+                                    "key_code": "v"
+                                },
+                                "to": [
+                                    {
+                                        "key_code": "9",
+                                        "modifiers": [
+                                            "control"
+                                        ]
+                                    }
+                                ],
+                                "type": "basic"
+                            },
+                            {
+                                "conditions": [
+                                    {
+                                        "name": "q_pressed",
+                                        "type": "variable_if",
+                                        "value": 1
+                                    }
+                                ],
                                 "description": "Enter",
                                 "from": {
                                     "key_code": "h"
@@ -396,7 +400,7 @@
                                     }
                                 ],
                                 "description": "Rectange Other",
-                                "from": { "key_code": "v" },
+                                "from": { "key_code": "d" },
                                 "to": [
                                         {
                                             "key_code": "4",
@@ -1570,7 +1574,7 @@
                                 },
                                 "to": [
                                     {
-                                        "shell_command": "/usr/bin/osascript -e 'tell application \"Finder\" to set the clipboard to POSIX path of (selection as alias)'"
+                                        "shell_command": "/usr/bin/osascript -e 'tell application \"Finder\"' -e 'set theSelection to selection' -e 'if (count of theSelection) > 0 then' -e 'set firstItem to item 1 of theSelection' -e 'set the clipboard to POSIX path of (firstItem as alias)' -e 'else' -e 'set the clipboard to POSIX path of (target of front window as alias)' -e 'end if' -e 'end tell'"
                                     }
                                 ],
                                 "type": "basic"
@@ -1810,20 +1814,6 @@
                             },
                             
                             {
-                                "description": "Page Down with Command+Shift+W",
-                                "from": {
-                                    "key_code": "w",
-                                    "modifiers": { "mandatory": ["command", "shift"] }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "page_down",
-                                        "modifiers": ["command", "shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            },
-                            {
                                 "description": "Cycle Tabs Forward with Command+R",
                                 "from": {
                                     "key_code": "r",
@@ -1872,11 +1862,6 @@
                                 "type": "basic"
                             },
                             {
-                                "description": "Page Up with Command+Shift+R",
-                                "from": {
-                                    "key_code": "r",
-                                    "modifiers": { "mandatory": ["command", "shift"] }
-                                },
                                 "to": [
                                     {
                                         "key_code": "page_up",
@@ -2461,7 +2446,7 @@
                                 },
                                 "to": [
                                     {
-                                        "key_code": "f3",
+                                        "key_code": "f2",
                                         "modifiers": ["command"]
                                     }
                                 ],
